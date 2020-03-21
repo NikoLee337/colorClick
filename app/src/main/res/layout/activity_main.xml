@@ -11,7 +11,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="164dp"
-        android:layout_above="@+id/imageButton2"
+        android:layout_above="@+id/playbutton"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -26,7 +26,7 @@
         app:srcCompat="@drawable/colorclicktitle" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/playbutton"
         android:layout_width="313dp"
         android:layout_height="86dp"
         android:layout_alignParentStart="true"
@@ -45,7 +45,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-        android:layout_alignTop="@+id/imageButton2"
+        android:layout_alignTop="@+id/playbutton"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
