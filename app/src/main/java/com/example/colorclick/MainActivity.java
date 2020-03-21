@@ -3,6 +3,7 @@ package com.example.colorclick;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,14 +13,29 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button;
     private ImageButton playbutton;
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         button = (Button) findViewById(R.id.button);
         playbutton = (ImageButton) findViewById(R.id.playbutton);
+
+        //changes the playbutton background color
+        playbutton.setBackgroundColor(Color.BLACK);
+
+        //changes the instructions button background color
+        //button.setBackgroundColor(Color.BLACK);
+        //button.setTextColor(Color.WHITE);
+
+
+        //change color of the background
+        view = this.getWindow().getDecorView();
+        view.setBackgroundColor(Color.BLACK);
+
 
         button.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -35,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     //opens the game window view
@@ -42,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GameView.class);
         startActivity(intent);
     }
+
     //opens the instructions view window
     public void openInstructions() {
         Intent intent = new Intent (this, InstructionWindow.class);
