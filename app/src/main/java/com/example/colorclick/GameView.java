@@ -8,13 +8,12 @@ import android.view.View;
 
 public class GameView extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_view);
 
-        //change color of the background
-        View view = this.getWindow().getDecorView();
-        view.setBackgroundColor(Color.BLACK);
     }
 }
