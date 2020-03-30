@@ -76,5 +76,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent (this, InstructionWindow.class);
         startActivity(intent);
     }
-
-}//end of class
+}

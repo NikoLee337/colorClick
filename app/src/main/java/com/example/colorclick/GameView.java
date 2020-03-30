@@ -38,14 +38,14 @@ public class GameView extends AppCompatActivity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                currentTime = currentTime - 1000;
+                currentTime = currentTime - 100;
                 timer.setProgress(currentTime);
                 if (currentTime > 0) {
-                    handler.postDelayed(runnable, 1000);
+                    handler.postDelayed(runnable, 100);
                     }
                 }
             };
-        handler.postDelayed(runnable, 1000);
+        handler.postDelayed(runnable, 100);
         }
 
 

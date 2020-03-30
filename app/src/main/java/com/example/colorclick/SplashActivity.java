@@ -8,8 +8,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-public class SplashActivity extends AppCompatActivity {
 
+public class SplashActivity extends AppCompatActivity {
+ 
     ImageView logo;
     Animation fromtheside;
 
