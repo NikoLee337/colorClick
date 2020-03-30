@@ -77,5 +77,3 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
-//This is for testing purposes
