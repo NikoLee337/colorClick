@@ -7,7 +7,7 @@
     android:background="@drawable/colorsplash"
     tools:context=".SplashActivity">
 
-
+    <!--Logo ball-->
     <ImageView
         android:layout_width="222dp"
         android:layout_height="215dp"
@@ -22,6 +22,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
+    <!--Text view of title-->
     <TextView
         android:id="@+id/texttitle"
         android:layout_width="match_parent"
@@ -31,14 +32,16 @@
         android:layout_gravity="center"
         android:gravity="center_horizontal"
         android:text="colorClick"
+        android:fontFamily="cursive"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
+    <!--Logo-man -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="264dp"
