@@ -2,13 +2,9 @@ package com.example.colorclick;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import java.util.Random;
 
@@ -25,11 +21,11 @@ public class GameView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_view);
+        setContentView(R.layout.activity_game);
 
         timer = findViewById(R.id.timer);
 
-        //set the initial timer to 5 seconds
+//        set the initial timer to 5 seconds
         timer.setMax(startTime);
         timer.setProgress(startTime);
 
