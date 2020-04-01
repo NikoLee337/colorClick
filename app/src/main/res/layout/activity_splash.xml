@@ -1,76 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/colorsplash"
-    android:gravity="center"
     tools:context=".SplashActivity">
 
+
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="338dp"
-        android:layout_height="355dp"
+        android:layout_width="222dp"
+        android:layout_height="215dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="159dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
-        android:layout_marginBottom="217dp"
-        android:src="@drawable/logo1allwhite" />
+        android:src="@drawable/logoball"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/texttitle"
         android:layout_width="match_parent"
         android:layout_height="99dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="180dp"
         android:text="colorClick"
         android:textColor="@color/white"
         android:textSize="34sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <ImageView
-        android:layout_width="258dp"
-        android:layout_height="277dp"
+        android:id="@+id/logo"
+        android:layout_width="264dp"
+        android:layout_height="297dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="165dp"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="119dp"
-        android:layout_marginEnd="-12dp"
-        android:layout_marginRight="-12dp"
-        android:layout_marginBottom="334dp"
-        android:src="@drawable/logoball" />
+        android:src="@drawable/logo1allwhite"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/texttitle"
+        app:layout_constraintVertical_bias="0.561" />
 
-    <!--loading bar for loading screen-->
-    <!--<ProgressBar
-        android:id="@+id/loadingbar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_marginBottom="12dp"
-        android:padding="16dp"
-        android:progress="@color/white"
-        android:secondaryProgressTint="@color/colorPrimaryDark"
-        android:indeterminate="true"
-        android:indeterminateDrawable="@drawable/progressbar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-        -->
+    <!--Constraint guidelines below-->
+    <!--Helps anchor each text/image to stay relatively close to each other-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="199dp"
+        app:layout_constraintGuide_percent=".18" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="336dp"
+        app:layout_constraintGuide_percent=".70" />
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="37dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="297dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="372dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="362dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
