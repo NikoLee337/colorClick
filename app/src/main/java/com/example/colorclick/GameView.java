@@ -2,9 +2,12 @@ package com.example.colorclick;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -14,6 +17,8 @@ public class GameView extends AppCompatActivity {
     Runnable runnable;
     ProgressBar timer;
     Random random;
+    Dialog pause;
+    //Dialog quit;
 
     int currentTime = 5000;
     int startTime = 5000;
@@ -24,8 +29,10 @@ public class GameView extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         timer = findViewById(R.id.timer);
+        pause = new Dialog(this);
+        //quit = new Dialog(this);
 
-//        set the initial timer to 5 seconds
+        //set the initial timer to 5 seconds
         timer.setMax(startTime);
         timer.setProgress(startTime);
 
@@ -44,5 +51,30 @@ public class GameView extends AppCompatActivity {
         handler.postDelayed(runnable, 100);
         }
 
+    //Pause Menu
+    public void pauseMenu (View v) {
+        TextView closebutton;
+
+        pause.setContentView(R.layout.pause_menu);
+        closebutton = (TextView) pause.findViewById(R.id.closebutton);
+
+        closebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pause.dismiss();
+            }
+        });
+        //pause.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        pause.show();
+
+    }
+
+    //quits the game
+    //public void quitGame (View v) {
+    //    quit.setContentView(R.layout.activity_main);
+
+
+    //    quit.show();
+    //}
 
 }

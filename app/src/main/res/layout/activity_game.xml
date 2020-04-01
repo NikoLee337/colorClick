@@ -47,7 +47,8 @@
             android:layout_toLeftOf="@id/textView_blank2"
             android:background="@color/black"
             android:src="@drawable/ic_baseline_pause"
-            android:paddingTop="15dp"/>
+            android:paddingTop="15dp"
+            android:onClick="pauseMenu"/>
     </RelativeLayout>
     <!--End Relative1-->
 
