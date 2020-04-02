@@ -2,12 +2,14 @@ package com.example.colorclick;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import java.util.Random;
 public class GameView extends AppCompatActivity {
 
     Handler handler;
+    Handler overHandler;
     Runnable runnable;
     ProgressBar timer;
     Random random;
@@ -35,7 +38,6 @@ public class GameView extends AppCompatActivity {
         timer = findViewById(R.id.timer_progressbar);
         pause = new Dialog(this);
         over = new Dialog(this);
-
         //quit = new Dialog(this);
 
 
@@ -57,7 +59,7 @@ public class GameView extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            openGameOver(v);
+                            openGameOver();
                         }
                     }, 100);
                 }
@@ -72,7 +74,6 @@ public class GameView extends AppCompatActivity {
 
         pause.setContentView(R.layout.pause_menu);
         closebutton = (TextView) pause.findViewById(R.id.closebutton);
-
         closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,14 +82,20 @@ public class GameView extends AppCompatActivity {
         });
 
         //pause.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        //shows the popup menu
         pause.show();
 
     }
 
 
-    public void openGameOver(View v) {
-        over.setContentView(R.layout.activity_gameover);
-        over.show();
+
+    public void openGameOver() {
+        Intent intent = new Intent (this, InstructionWindow.class);
+        startActivity(intent);
+        //over.setContentView(R.layout.activity_gameover);
+        //over.show();
+    }
 
         //quits the game
         //public void quitGame (View v) {
@@ -98,5 +105,4 @@ public class GameView extends AppCompatActivity {
         //    quit.show();
         //}
 
-    }
 }
