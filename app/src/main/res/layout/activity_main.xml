@@ -32,21 +32,23 @@
         android:text="Instructions" />-->
 
     <!--instructions button pop up-->
+
     <ImageView
         android:layout_width="319dp"
         android:layout_height="320dp"
         android:src="@drawable/colorclicktitle3"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.518" />
 
     <ImageButton
         android:id="@+id/playbutton"
         android:layout_width="313dp"
         android:layout_height="86dp"
-        android:background="@color/black"
+        android:background="@color/colorPrimaryDark"
         android:scaleType="center"
         android:src="@drawable/playbutton1"
         app:layout_constraintBottom_toTopOf="@+id/button2"
@@ -61,12 +63,13 @@
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:onClick="showInstructions"
-        android:padding="20dp"
+        android:padding="15dp"
         android:text="INSTRUCTIONS"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <!--Horizontal guidelines to help secure the buttons-->
@@ -75,30 +78,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".10"
-        app:layout_constraintGuide_begin="182dp" />
+        app:layout_constraintGuide_begin="182dp"
+        app:layout_constraintGuide_percent=".10" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".55"
-        app:layout_constraintGuide_begin="344dp" />
+        app:layout_constraintGuide_begin="344dp"
+        app:layout_constraintGuide_percent=".55" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".80"
-        app:layout_constraintGuide_begin="571dp" />
+        app:layout_constraintGuide_begin="571dp"
+        app:layout_constraintGuide_percent=".80" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintGuide_percent=".05"
         app:layout_constraintGuide_begin="43dp" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -106,6 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintGuide_percent=".95"
         app:layout_constraintGuide_begin="365dp" />
 
 
