@@ -23,6 +23,7 @@ public class GameView extends AppCompatActivity {
     //buttons
     View btn_00, btn_10;
     View correct;
+    ImageView correctColor;
 
     //comment here
     Handler handler;
@@ -33,6 +34,18 @@ public class GameView extends AppCompatActivity {
     Dialog pause;
     View v;
 
+    //colors
+    private final static int COLOR_RED = 1;
+    private final static int COLOR_ORANGE = 2;
+    private final static int COLOR_YELLOW = 3;
+    private final static int COLOR_GREEN = 4;
+    private final static int COLOR_BLUE = 5;
+    private final static int COLOR_INDIGO = 6;
+    private final static int COLOR_VIOLET = 7;
+
+    Random r;
+    int colorToBeMatched;
+
     boolean rightColor = false;
 
     int currentTime = 5000;
@@ -42,6 +55,12 @@ public class GameView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        //randomize colorToBeMatched
+        r = new Random();
+        colorToBeMatched = r.nextInt(7+1);
+        setColorImage(colorToBeMatched);
+
 
         //color button ids
         correct = findViewById(R.id.imageView_color);
@@ -112,12 +131,42 @@ public class GameView extends AppCompatActivity {
     //plays the game
     public void playGame(View v) {
         correctColor(v);
+
+
     }
 
+    //set color to be matched
+    private void setColorImage(int match){
+        switch (match){
+            case COLOR_RED:
+                correctColor.setImageResource(R.drawable.red1);
+                colorToBeMatched = COLOR_RED;
+                break;
+
+            case COLOR_YELLOW:
+
+                break;
+
+            case COLOR_ORANGE:
+                break;
+
+            case COLOR_GREEN:
+                break;
+
+            case COLOR_BLUE:
+                break;
+
+            case COLOR_INDIGO:
+                break;
+
+            case COLOR_VIOLET:
+                break;
+        }
+    }
 
     //correct color clicked method
     public void correctColor(View v) {
-            btn_00.setVisibility(View.INVISIBLE);
+        btn_00.setVisibility(View.INVISIBLE);
     }
     //incorrect color clicked method
     public void incorrectColor(View v) {
