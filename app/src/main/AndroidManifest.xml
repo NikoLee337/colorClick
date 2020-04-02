@@ -26,6 +26,7 @@
         <activity android:name=".GameView" />
         <activity android:name=".MainActivity">
         </activity>
+        <activity android:name=".GameOver" />
     </application>
 
 </manifest>

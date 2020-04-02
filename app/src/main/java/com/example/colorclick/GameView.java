@@ -91,8 +91,10 @@ public class GameView extends AppCompatActivity {
 
 
     public void openGameOver() {
-        over.setContentView(R.layout.activity_gameover);
-        over.show();
+        Intent intent = new Intent (this, InstructionWindow.class);
+        startActivity(intent);
+        //over.setContentView(R.layout.activity_gameover);
+        //over.show();
     }
 
         //quits the game
