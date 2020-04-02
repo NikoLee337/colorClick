@@ -38,7 +38,7 @@ public class GameView extends AppCompatActivity {
 
         timer = findViewById(R.id.timer_progressbar);
         pause = new Dialog(this);
-        over = new Dialog(this);
+
         //quit = new Dialog(this);
 
 
