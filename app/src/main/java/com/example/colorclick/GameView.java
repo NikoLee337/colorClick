@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -94,6 +95,10 @@ public class GameView extends AppCompatActivity {
         Intent intent = new Intent (this, GameOver.class);
         startActivity(intent);
     }
+
+
+        ImageView img = (ImageView) findViewById(R.id.arr);
+
 
         //quits the game
         //public void quitGame (View v) {

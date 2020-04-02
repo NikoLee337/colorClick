@@ -30,10 +30,10 @@
 
         <!--Level title -->
         <TextView
-            android:id="@+id/textView_level2"
+            android:id="@+id/textView_level4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level 2"
+            android:text="Level 4"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank1"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/orange1"
+            android:src="@drawable/yellow1"
             android:background="@color/transparent"/>
 
         <ImageButton
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/green1"
+            android:src="@drawable/orange1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear1-->
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/red1"
+            android:src="@drawable/blue1"
             android:background="@color/transparent"/>
 
         <ImageButton
@@ -112,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/yellow1"
+            android:src="@drawable/red1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear2-->
@@ -160,7 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:src="@drawable/red_footer"
+            android:src="@drawable/orange_footer"
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"/>
 
