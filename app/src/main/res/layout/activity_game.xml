@@ -14,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
+
         <!--Spacer Header1 -->
         <TextView
             android:id="@+id/textView_header1"
@@ -158,7 +160,7 @@
             android:layout_alignParentRight="true"/>
 
         <!--Color Icon Image -->
-        <ImageView
+        <ImageButton
             android:id="@+id/imageView_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
