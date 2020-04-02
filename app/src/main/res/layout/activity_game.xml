@@ -172,7 +172,8 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp" />
+            android:paddingBottom="5dp"
+            android:progressTint="@color/red"/> <!--changes progressbar color-->
 
         <!--Spacer Footer2 -->
         <TextView
