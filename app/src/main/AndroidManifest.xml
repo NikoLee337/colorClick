@@ -6,7 +6,7 @@
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true"
-        android:xlargeScreens="true"/>
+        android:xlargeScreens="true" />
 
     <application
         android:allowBackup="true"
@@ -24,8 +24,7 @@
         </activity>
         <activity android:name=".InstructionWindow" />
         <activity android:name=".GameView" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".GameOver" />
     </application>
 
