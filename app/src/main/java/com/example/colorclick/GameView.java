@@ -103,6 +103,7 @@ public class GameView extends AppCompatActivity {
     }
 
 
+
     //open game over screen method
     public void openGameOver() {
         Intent intent = new Intent(this, GameOver.class);
