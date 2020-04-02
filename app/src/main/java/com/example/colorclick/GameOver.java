@@ -41,8 +41,7 @@ public class GameOver extends AppCompatActivity {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                moveTaskToBack(true);
+                exitButton();
             }
         });
 
@@ -56,6 +55,12 @@ public class GameOver extends AppCompatActivity {
     public void openMainMenu() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void exitButton() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
     }
 
 }
