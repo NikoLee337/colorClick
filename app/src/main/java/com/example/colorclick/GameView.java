@@ -99,7 +99,7 @@ public class GameView extends AppCompatActivity {
 
 
 
-
+    //test
         //quits the game
         //public void quitGame (View v) {
         //    quit.setContentView(R.layout.activity_main);
