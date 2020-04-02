@@ -82,7 +82,7 @@
             android:layout_weight="1"
             android:src="@drawable/yellow1"
             android:background="@color/transparent"
-            android:onClick="scrollToTop"/>
+            android:onClick="correctColor"/>
 
         <ImageButton
             android:id="@+id/button_01"
@@ -90,7 +90,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/red1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            />
+
     </LinearLayout>
     <!--End Linear1-->
 
@@ -185,9 +187,6 @@
             android:layout_alignBottom="@id/timer_progressbar"/>
     </RelativeLayout>
     <!--End Relative2-->
-
-
-
 
 </LinearLayout>
 <!--End of Main Layout-->
