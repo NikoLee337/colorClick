@@ -30,10 +30,10 @@
 
         <!--Level title -->
         <TextView
-            android:id="@+id/textView_level1"
+            android:id="@+id/textView_level3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level 1"
+            android:text="Level 3"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank1"
@@ -80,16 +80,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/yellow1"
-            android:background="@color/transparent"
-            android:onClick="scrollToTop"/>
+            android:src="@drawable/red1"
+            android:background="@color/transparent"/>
 
         <ImageButton
             android:id="@+id/button_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/red1"
+            android:src="@drawable/yellow1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear1-->
@@ -105,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/blue1"
+            android:src="@drawable/green1"
             android:background="@color/transparent"/>
 
         <ImageButton
@@ -113,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/orange1"
+            android:src="@drawable/blue1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear2-->
@@ -161,7 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:src="@drawable/yellow_footer"
+            android:src="@drawable/blue_footer"
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"/>
 
@@ -186,11 +185,8 @@
     </RelativeLayout>
     <!--End Relative2-->
 
-
-
-
 </LinearLayout>
-<!--End of Main Layout-->
+    <!--End of Main Layout-->
 
 
 
