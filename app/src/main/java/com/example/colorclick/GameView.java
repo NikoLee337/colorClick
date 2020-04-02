@@ -97,7 +97,7 @@ public class GameView extends AppCompatActivity {
     }
 
 
-        ImageView img = (ImageView) findViewById(R.id.arr);
+
 
 
         //quits the game
