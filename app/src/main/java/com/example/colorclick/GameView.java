@@ -97,12 +97,12 @@ public class GameView extends AppCompatActivity {
         //over.show();
     }
 
-        //quits the game
-        //public void quitGame (View v) {
-        //    quit.setContentView(R.layout.activity_main);
+    //quits the game
+    //public void quitGame (View v) {
+    //    quit.setContentView(R.layout.activity_main);
 
 
-        //    quit.show();
-        //}
+    //    quit.show();
+    //}
 
 }
