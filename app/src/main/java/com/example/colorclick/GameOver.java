@@ -13,6 +13,7 @@ public class GameOver extends AppCompatActivity {
 
     Button playagain;
     Button mainmenu;
+    Button exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class GameOver extends AppCompatActivity {
 
         playagain = findViewById(R.id.playagainbutton);
         mainmenu = findViewById(R.id.mainmenubutton);
+        exit = (Button) findViewById(R.id.exitbutton);
 
         playagain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +35,14 @@ public class GameOver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openMainMenu();
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                moveTaskToBack(true);
             }
         });
 
