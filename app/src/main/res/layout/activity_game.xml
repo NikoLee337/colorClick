@@ -14,6 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--Spacer Header1 -->
+        <TextView
+            android:id="@+id/textView_header1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+
+            android:background="@color/white"/>
+
         <!--Spacer 1, Left of Level -->
         <TextView
             android:id="@+id/textView_blank1"
@@ -60,17 +68,20 @@
 
         <Button
             android:id="@+id/button_00"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp" />
+            android:textSize="90sp"
+            android:background="@drawable/bluecircle_test2"
+            />
 
         <Button
             android:id="@+id/button_01"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp" />
+            android:textSize="90sp"
+            android:background="@drawable/blue_circle_test3"/>
     </LinearLayout>
     <!--End Linear1-->
 
