@@ -18,9 +18,8 @@
         <TextView
             android:id="@+id/textView_header1"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-
-            android:background="@color/white"/>
+            android:layout_height="5dp"
+            android:background="@color/violet"/>
 
         <!--Spacer 1, Left of Level -->
         <TextView
@@ -53,10 +52,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/textView_blank2"
-            android:background="@color/black"
+            android:background="@color/transparent"
+            android:onClick="pauseMenu"
+            android:paddingTop="7dp"
+            android:paddingBottom="5dp"
             android:src="@drawable/ic_baseline_pause"
-            android:paddingTop="15dp"
-            android:onClick="pauseMenu"/>
+            />
+
+        <!--Spacer Header2 -->
+        <TextView
+            android:id="@+id/textView_header2"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/violet"
+            android:layout_alignBottom="@id/textView_blank2"/>
     </RelativeLayout>
     <!--End Relative1-->
 
@@ -66,22 +75,21 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-        <Button
+        <ImageButton
             android:id="@+id/button_00"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:background="@drawable/bluecircle_test2"
-            />
+            android:src="@drawable/yellow1"
+            android:background="@color/transparent"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/button_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp"
-            android:background="@drawable/blue_circle_test3"/>
+            android:src="@drawable/yellow1"
+            android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear1-->
 
@@ -91,19 +99,21 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-        <Button
+        <ImageButton
             android:id="@+id/button_10"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp" />
+            android:src="@drawable/yellow1"
+            android:background="@color/transparent"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/button_11"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="90sp" />
+            android:src="@drawable/yellow1"
+            android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear2-->
 
@@ -111,6 +121,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!--Spacer Footer1 -->
+        <TextView
+            android:id="@+id/textView_footer1"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/violet"/>
 
         <!--Spacer 3, Left of Timer -->
         <TextView
@@ -128,7 +145,7 @@
             android:textColor="@color/white"
             android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank3"
-            android:paddingTop="8dp"/>
+            android:paddingTop="5dp"/>
 
         <!--Spacer 4, Right of Color Icon -->
         <TextView
@@ -142,18 +159,28 @@
             android:id="@+id/imageView_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="0dp"
-            android:src="@drawable/ic_baseline_circle_test"
-            android:layout_toLeftOf="@id/textView_blank4"/>
+            android:paddingTop="10dp"
+            android:src="@drawable/yellow_footer"
+            android:layout_toLeftOf="@id/textView_blank4"
+            android:background="@color/transparent"/>
 
         <!--Progress/Timer Bar -->
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
-            android:id="@+id/timer"
+            android:id="@+id/timer_progressbar"
             android:layout_below="@id/textView_timer"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:paddingTop="5dp"/>
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+
+        <!--Spacer Footer2 -->
+        <TextView
+            android:id="@+id/textView_footer2"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/violet"
+            android:layout_alignBottom="@id/timer_progressbar"/>
     </RelativeLayout>
     <!--End Relative2-->
 

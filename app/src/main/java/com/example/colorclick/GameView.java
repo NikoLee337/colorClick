@@ -28,9 +28,11 @@ public class GameView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        timer = findViewById(R.id.timer);
+        timer = findViewById(R.id.timer_progressbar);
         pause = new Dialog(this);
         //quit = new Dialog(this);
+
+
 
         //set the initial timer to 5 seconds
         timer.setMax(startTime);

@@ -12,5 +12,5 @@
     <color name="blue">#0000FF</color>
     <color name="indigo">#4B0082</color>
     <color name="violet">#EE82EE</color>
-    
+    <color name="transparent">#00000000</color>
 </resources>
