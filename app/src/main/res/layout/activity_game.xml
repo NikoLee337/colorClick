@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/yellow1"
+            android:src="@drawable/red1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear1-->
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/yellow1"
+            android:src="@drawable/blue1"
             android:background="@color/transparent"/>
 
         <ImageButton
@@ -112,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/yellow1"
+            android:src="@drawable/orange1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear2-->
