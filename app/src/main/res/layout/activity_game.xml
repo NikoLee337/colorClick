@@ -81,7 +81,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/yellow1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:onClick="correctColor"/>
 
         <ImageButton
             android:id="@+id/button_01"
@@ -89,7 +90,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/red1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            />
+
     </LinearLayout>
     <!--End Linear1-->
 

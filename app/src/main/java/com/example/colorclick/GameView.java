@@ -16,10 +16,13 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import static com.example.colorclick.R.drawable.yellow1;
+
 public class GameView extends AppCompatActivity {
 
     //buttons
-    View btn_00;
+    View btn_00, btn_10;
+    View correct;
 
     //comment here
     Handler handler;
@@ -41,8 +44,8 @@ public class GameView extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         //color button ids
+        correct = findViewById(R.id.imageView_color);
         btn_00 = findViewById(R.id.button_00);
-
 
         //initializes the pause variable
         pause = new Dialog(this);
@@ -76,6 +79,9 @@ public class GameView extends AppCompatActivity {
             }
         };
         handler.postDelayed(runnable, 100);
+
+
+        //playGame();
     }
 
 
@@ -99,14 +105,23 @@ public class GameView extends AppCompatActivity {
 
     //open game over screen method
     public void openGameOver() {
-        Intent intent = new Intent (this, GameOver.class);
+        Intent intent = new Intent(this, GameOver.class);
         startActivity(intent);
     }
 
+    //plays the game
+    public void playGame(View v) {
+        correctColor(v);
+    }
 
-    //game play HERE
-    public void playGame() {
 
+    //correct color clicked method
+    public void correctColor(View v) {
+            btn_00.setVisibility(View.INVISIBLE);
+    }
+    //incorrect color clicked method
+    public void incorrectColor(View v) {
+        btn_00.setVisibility(View.VISIBLE);
     }
 
 }
