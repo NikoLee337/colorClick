@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static com.example.colorclick.R.drawable.abc_btn_switch_to_on_mtrl_00001;
@@ -87,11 +89,13 @@ public class GameView extends AppCompatActivity {
         setMatchColor(matchColor);
         //generate board
         genMatchingColor(matchColor);
-        boardPosition(bPosition, matchColor);
-        button_00(matchColor);
-        button_01(matchColor);
-        button_10(matchColor);
-        button_11(matchColor);
+        boardPositionCorrect(bPosition, matchColor);
+       // boardPositionIncorrect(bPosition,matchColor);
+
+//        button_00(matchColor);
+//        button_01(matchColor);
+//        button_10(matchColor);
+//        button_11(matchColor);
 
 //        //method that moves to the next level
 //        btn_00.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +214,54 @@ public class GameView extends AppCompatActivity {
 
     }
 
+//add int color
+//    private void boardPositionIncorrect(int posi, int color) {
+//        List <Integer> temp;
+//
+//        List<Integer> position = new ArrayList<Integer>();
+//        position.add(B_00); //value = 1
+//        position.add(B_01); //value = 2
+//        position.add(B_10); //value = 3
+//        position.add(B_11); //value = 4
+//
+//        for(int i = 0; i < position.size(); i++){
+//            if(i == posi) {
+//                position.remove(i);
+//            }
+//        }
+//
+//        temp = position;
+
+//        List<Integer> colors = new ArrayList<Integer>();
+//        colors.add(COLOR_RED);
+//        colors.add(COLOR_ORANGE);
+//        colors.add(COLOR_YELLOW);
+//        colors.add(COLOR_GREEN);
+//        colors.add(COLOR_BLUE);
+//        colors.add(COLOR_INDIGO);
+//        colors.add(COLOR_VIOLET);
+//
+//        for(int i = 0; i < colors.size(); i++){
+//            if(i == color) {
+//                colors.remove(i);
+//            }
+//        }
+
+
+//        for(int k = 0; k <temp.size(); k++){
+//            if(k == B_00){
+//                button_00(color);
+//            }else if(k == B_01){
+//                button_01(color);
+//            }else if(k == B_10){
+//                button_10(color);
+//            }else{
+//                button_11(color);
+//            }
+//        }
+//    }
+
+
     public void button_00(int color) {
        switch (color) {
            case COLOR_RED:
@@ -315,7 +367,7 @@ public class GameView extends AppCompatActivity {
     }
 
     //
-    private void boardPosition(int pos, int color) {
+    private void boardPositionCorrect(int pos, int color) {
 
         switch (pos) {
             case B_00:
