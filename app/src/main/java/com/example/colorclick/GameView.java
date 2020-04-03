@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import static com.example.colorclick.R.drawable.abc_btn_switch_to_on_mtrl_00001;
 import static com.example.colorclick.R.drawable.yellow1;
 
 public class GameView extends AppCompatActivity {
@@ -86,8 +87,11 @@ public class GameView extends AppCompatActivity {
         setMatchColor(matchColor);
         //generate board
         genMatchingColor(matchColor);
-        boardPosition(matchColor, bPosition);
-
+        boardPosition(bPosition, matchColor);
+        button_00(matchColor);
+        button_01(matchColor);
+        button_10(matchColor);
+        button_11(matchColor);
 
 //        //method that moves to the next level
 //        btn_00.setOnClickListener(new View.OnClickListener() {
@@ -162,11 +166,11 @@ public class GameView extends AppCompatActivity {
                 matchColor = COLOR_BLUE;
                 break;
             case COLOR_INDIGO:
-                toBeMatch.setImageResource(R.drawable.indigo1);
+                toBeMatch.setImageResource(R.drawable.indigo_footer);
                 matchColor = COLOR_INDIGO;
                 break;
             case COLOR_VIOLET:
-                toBeMatch.setImageResource(R.drawable.violet1);
+                toBeMatch.setImageResource(R.drawable.violet_footer);
                 matchColor = COLOR_VIOLET;
                 break;
         }
@@ -181,31 +185,24 @@ public class GameView extends AppCompatActivity {
 
         switch (correct) {
             case COLOR_RED:
-                btn_00.setImageResource(R.drawable.red1);
                 matchColor = COLOR_RED;
                 break;
             case COLOR_ORANGE:
-                btn_00.setImageResource(R.drawable.orange1);
                 matchColor = COLOR_ORANGE;
                 break;
             case COLOR_YELLOW:
-                btn_00.setImageResource(R.drawable.yellow1);
                 matchColor = COLOR_YELLOW;
                 break;
             case COLOR_GREEN:
-                btn_00.setImageResource(R.drawable.green1);
                 matchColor = COLOR_GREEN;
                 break;
             case COLOR_BLUE:
-                btn_00.setImageResource(R.drawable.blue1);
                 matchColor = COLOR_BLUE;
                 break;
             case COLOR_INDIGO:
-                btn_00.setImageResource(R.drawable.indigo1);
                 matchColor = COLOR_INDIGO;
                 break;
             case COLOR_VIOLET:
-                btn_00.setImageResource(R.drawable.violet1);
                 matchColor = COLOR_VIOLET;
                 break;
 
@@ -213,24 +210,128 @@ public class GameView extends AppCompatActivity {
 
     }
 
+    public void button_00(int color) {
+       switch (color) {
+           case COLOR_RED:
+               btn_00.setImageResource(R.drawable.red1);
+               break;
+           case COLOR_ORANGE:
+               btn_00.setImageResource(R.drawable.orange1);
+               break;
+           case COLOR_YELLOW:
+               btn_00.setImageResource(R.drawable.yellow1);
+               break;
+           case COLOR_GREEN:
+               btn_00.setImageResource(R.drawable.green1);
+               break;
+           case COLOR_BLUE:
+               btn_00.setImageResource(R.drawable.blue1);
+               break;
+           case COLOR_INDIGO:
+               btn_00.setImageResource(R.drawable.indigo1);
+               break;
+           case COLOR_VIOLET:
+               btn_00.setImageResource(R.drawable.violet1);
+               break;
+       }
+    }
+
+    public void button_01(int color) {
+        switch (color) {
+            case COLOR_RED:
+                btn_01.setImageResource(R.drawable.red1);
+                break;
+            case COLOR_ORANGE:
+                btn_01.setImageResource(R.drawable.orange1);
+                break;
+            case COLOR_YELLOW:
+                btn_01.setImageResource(R.drawable.yellow1);
+                break;
+            case COLOR_GREEN:
+                btn_01.setImageResource(R.drawable.green1);
+                break;
+            case COLOR_BLUE:
+                btn_01.setImageResource(R.drawable.blue1);
+                break;
+            case COLOR_INDIGO:
+                btn_01.setImageResource(R.drawable.indigo1);
+                break;
+            case COLOR_VIOLET:
+                btn_01.setImageResource(R.drawable.violet1);
+                break;
+        }
+    }
+
+    public void button_10(int color) {
+        switch (color) {
+            case COLOR_RED:
+                btn_10.setImageResource(R.drawable.red1);
+                break;
+            case COLOR_ORANGE:
+                btn_10.setImageResource(R.drawable.orange1);
+                break;
+            case COLOR_YELLOW:
+                btn_10.setImageResource(R.drawable.yellow1);
+                break;
+            case COLOR_GREEN:
+                btn_10.setImageResource(R.drawable.green1);
+                break;
+            case COLOR_BLUE:
+                btn_10.setImageResource(R.drawable.blue1);
+                break;
+            case COLOR_INDIGO:
+                btn_10.setImageResource(R.drawable.indigo1);
+                break;
+            case COLOR_VIOLET:
+                btn_10.setImageResource(R.drawable.violet1);
+                break;
+        }
+    }
+
+    public void button_11(int color) {
+        switch (color) {
+            case COLOR_RED:
+                btn_11.setImageResource(R.drawable.red1);
+                break;
+            case COLOR_ORANGE:
+                btn_11.setImageResource(R.drawable.orange1);
+                break;
+            case COLOR_YELLOW:
+                btn_11.setImageResource(R.drawable.yellow1);
+                break;
+            case COLOR_GREEN:
+                btn_11.setImageResource(R.drawable.green1);
+                break;
+            case COLOR_BLUE:
+                btn_11.setImageResource(R.drawable.blue1);
+                break;
+            case COLOR_INDIGO:
+                btn_11.setImageResource(R.drawable.indigo1);
+                break;
+            case COLOR_VIOLET:
+                btn_11.setImageResource(R.drawable.violet1);
+                break;
+        }
+    }
+
     //
     private void boardPosition(int pos, int color) {
 
         switch (pos) {
             case B_00:
-                btn_00.setImageResource(R.drawable.red1);
+                button_00(color);
                 bPosition = B_00;
                 break;
             case B_01:
-                btn_01.setImageResource(R.drawable.orange1);
+                button_01(color);
                 bPosition = B_01;
                 break;
             case B_10:
-                btn_10.setImageResource(yellow1);
+                button_10(color);
                 bPosition = B_10;
                 break;
             case B_11:
-                btn_11.setImageResource(R.drawable.green1);
+                button_11(color);
                 bPosition = B_11;
         }
     }
