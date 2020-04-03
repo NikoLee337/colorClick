@@ -61,10 +61,10 @@ public class GameView extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         //color button ids
-//        btn_00 = findViewById(R.id.button_00);
-//        btn_01 = findViewById(R.id.button_01);
-//        btn_10 = findViewById(R.id.button_10);
-//        btn_11 = findViewById(R.id.button_11);
+        btn_00 = findViewById(R.id.button_00);
+        btn_01 = findViewById(R.id.button_01);
+        btn_10 = findViewById(R.id.button_10);
+        btn_11 = findViewById(R.id.button_11);
 
         //color needed to be matched to other circles on the board
         toBeMatch = findViewById(R.id.imageView_color);
@@ -76,17 +76,17 @@ public class GameView extends AppCompatActivity {
         //display the level
         level.setText("Level " + currentLevel);
 
-          //randomize the matched color
+        //randomize the matched color
         r1 = new Random();
         matchColor = r1.nextInt(7) + 1;
-        setMatchColor(matchColor);
 
-        //generate board
-        generateGameBoard(matchColor);
-
-        //randomize buttons
         r2 = new Random();
         bPosition = r2.nextInt(4) + 1;
+
+        setMatchColor(matchColor);
+        //generate board
+        genMatchingColor(matchColor);
+        boardPosition(matchColor, bPosition);
 
 
 //        //method that moves to the next level
@@ -139,7 +139,7 @@ public class GameView extends AppCompatActivity {
     }
 
     //display the random color for player to match
-    private int setMatchColor (int match) {
+    private int setMatchColor(int match) {
         switch (match) {
             case COLOR_RED:
                 toBeMatch.setImageResource(R.drawable.red_footer);
@@ -174,23 +174,22 @@ public class GameView extends AppCompatActivity {
     }
 
     //randomizes the colors around the board
-    private void generateGameBoard(int correct) {
+    private void genMatchingColor(int correct) {
 
-        int[] genBoardColor = { COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET};
+        int[] genBoardColor = {COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET};
 
 
         switch (correct) {
             case COLOR_RED:
                 btn_00.setImageResource(R.drawable.red1);
                 matchColor = COLOR_RED;
-
                 break;
             case COLOR_ORANGE:
                 btn_00.setImageResource(R.drawable.orange1);
                 matchColor = COLOR_ORANGE;
                 break;
             case COLOR_YELLOW:
-                btn_00.setImageResource(yellow1);
+                btn_00.setImageResource(R.drawable.yellow1);
                 matchColor = COLOR_YELLOW;
                 break;
             case COLOR_GREEN:
@@ -209,15 +208,38 @@ public class GameView extends AppCompatActivity {
                 btn_00.setImageResource(R.drawable.violet1);
                 matchColor = COLOR_VIOLET;
                 break;
+
         }
 
     }
 
+    //
+    private void boardPosition(int pos, int color) {
+
+        switch (pos) {
+            case B_00:
+                btn_00.setImageResource(R.drawable.red1);
+                bPosition = B_00;
+                break;
+            case B_01:
+                btn_01.setImageResource(R.drawable.orange1);
+                bPosition = B_01;
+                break;
+            case B_10:
+                btn_10.setImageResource(yellow1);
+                bPosition = B_10;
+                break;
+            case B_11:
+                btn_11.setImageResource(R.drawable.green1);
+                bPosition = B_11;
+        }
+    }
+
     //randomizes the colors in an array
-    public static int[] randomColorArray (int [] array) {
+    public static int[] randomColorArray(int[] array) {
         Random rgen = new Random(); //generates random number
 
-        for (int i = 0; i <array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             int randomPosition = rgen.nextInt(array.length);
             int temp = array[i];
             array[i] = array[randomPosition];
@@ -226,7 +248,6 @@ public class GameView extends AppCompatActivity {
 
         return array;
     }
-
 
 
     //pause menu method
@@ -264,6 +285,7 @@ public class GameView extends AppCompatActivity {
         //btn_00.setVisibility(View.INVISIBLE);
 
     }
+
     //incorrect color clicked method
     public void incorrectColor(View v) {
         btn_00.setVisibility(View.VISIBLE);
