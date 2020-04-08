@@ -77,23 +77,47 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/button_00"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/yellow1"
-            android:background="@color/transparent"
-            android:onClick="correctColor"/>
+            android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/button_01"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/red1"
-            android:background="@color/transparent"
-            />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="41dp" />
+
+            <ImageButton
+                android:id="@+id/button_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:src="@drawable/red1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline14"
+                app:layout_constraintVertical_bias="0.686"
+                />
+
+            <ImageButton
+                android:id="@+id/button_00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:onClick="playGame"
+                android:src="@drawable/yellow1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_01"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline14"
+                app:layout_constraintVertical_bias="0.509" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
     <!--End Linear1-->
@@ -107,18 +131,22 @@
         <ImageButton
             android:id="@+id/button_10"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/transparent"
+            android:paddingBottom="70dp"
             android:src="@drawable/blue1"
-            android:background="@color/transparent"/>
+            />
 
         <ImageButton
             android:id="@+id/button_11"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/orange1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:paddingBottom="70dp"
+            />
     </LinearLayout>
     <!--End Linear2-->
 

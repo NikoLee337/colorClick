@@ -14,16 +14,25 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import static com.example.colorclick.R.drawable.abc_btn_switch_to_on_mtrl_00001;
 import static com.example.colorclick.R.drawable.yellow1;
 
 public class GameView extends AppCompatActivity {
 
     //buttons
-    View btn_00, btn_01, btn_10, btn_11;
+    ImageButton btn_00, btn_01, btn_10, btn_11;
     ImageView toBeMatch;
     TextView level;
+
+    private final static int B_00 = 1;
+    private final static int B_01 = 2;
+    private final static int B_10 = 3;
+    private final static int B_11 = 4;
+    int bPosition = B_00;
 
     private final static int COLOR_RED = 1;
     private final static int COLOR_ORANGE = 2;
@@ -32,7 +41,7 @@ public class GameView extends AppCompatActivity {
     private final static int COLOR_BLUE = 5;
     private final static int COLOR_INDIGO = 6;
     private final static int COLOR_VIOLET = 7;
-    int MATCH_COLOR = 1;
+    int matchColor = 1;
 
     int currentLevel = 1;
 
@@ -40,7 +49,7 @@ public class GameView extends AppCompatActivity {
     Handler handler;
     Runnable runnable;
     ProgressBar timer;
-    Random r;
+    Random r1, r2;
     Dialog pause;
     View v;
 
@@ -54,35 +63,51 @@ public class GameView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-//        //color button ids
+        //color button ids
         btn_00 = findViewById(R.id.button_00);
-//        btn_01 = findViewById(R.id.button_01);
-//        btn_10 = findViewById(R.id.button_10);
-//        btn_11 = findViewById(R.id.button_11);
+        btn_01 = findViewById(R.id.button_01);
+        btn_10 = findViewById(R.id.button_10);
+        btn_11 = findViewById(R.id.button_11);
+
+        //color needed to be matched to other circles on the board
         toBeMatch = findViewById(R.id.imageView_color);
         toBeMatch.setClickable(false);
-//        //text variable for level
-//        level = findViewById(R.id.textView_level1);
+
+        //text variable for level
+        level = findViewById(R.id.textView_level1);
+
+        //display the level
+        level.setText("Level " + currentLevel);
+
+        //randomize the matched color
+        r1 = new Random();
+        matchColor = r1.nextInt(7) + 1;
+
+        r2 = new Random();
+        bPosition = r2.nextInt(4) + 1;
+
+        setMatchColor(matchColor);
+        //generate board
+        genMatchingColor(matchColor);
+        boardPositionCorrect(bPosition, matchColor);
+       // boardPositionIncorrect(bPosition,matchColor);
+
+//        button_00(matchColor);
+//        button_01(matchColor);
+//        button_10(matchColor);
+//        button_11(matchColor);
+
+//        //method that moves to the next level
+//        btn_00.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if ( btn_00.equals(toBeMatch)) {
+//                    btn_00.setVisibility(View. INVISIBLE);
 //
-//        //display the level
-//        level.setText("Level " + currentLevel);
-//
-//        //randomize the matched color
-//        r = new Random();
-//        MATCH_COLOR = r.nextInt(7) + 1;
-//        setMatchColor(MATCH_COLOR);
-
-        btn_00.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( btn_00.equals(toBeMatch)) {
-                    btn_00.setVisibility(View. INVISIBLE);
-
-
-                }
-                setContentView(R.layout.activity_game2);
-            }
-        });
+//                }
+//                setContentView(R.layout.activity_game2);
+//            }
+//        });
 
         /////////////////////////////////////////////////////////////
 
@@ -96,10 +121,8 @@ public class GameView extends AppCompatActivity {
         timer.setMax(startTime);
         timer.setProgress(startTime);
 
-        //handler for the timer
+        //handles the timer/progressbar countdown and main loop
         handler = new Handler();
-
-        //runs and handles the progressbar/timer
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -124,39 +147,260 @@ public class GameView extends AppCompatActivity {
     }
 
     //display the random color for player to match
-//    private void setMatchColor (int startColor) {
-//        switch (startColor) {
-//            case COLOR_RED:
-//                toBeMatch.setImageResource(R.drawable.red1);
-//                currentLevel = COLOR_RED;
-//                break;
-//            case COLOR_ORANGE:
-//                toBeMatch.setImageResource(R.drawable.orange1);
-//                currentLevel = COLOR_ORANGE;
-//                break;
-//            case COLOR_YELLOW:
-//                toBeMatch.setImageResource(R.drawable.yellow1);
-//                currentLevel = COLOR_YELLOW;
-//                break;
-//            case COLOR_GREEN:
-//                toBeMatch.setImageResource(R.drawable.green1);
-//                currentLevel = COLOR_GREEN;
-//                break;
-//            case COLOR_BLUE:
-//                toBeMatch.setImageResource(R.drawable.blue1);
-//                currentLevel = COLOR_BLUE;
-//                break;
-//            case COLOR_INDIGO:
-//                toBeMatch.setImageResource(R.drawable.indigo1);
-//                currentLevel = COLOR_INDIGO;
-//                break;
-//            case COLOR_VIOLET:
-//                toBeMatch.setImageResource(R.drawable.violet1);
-//                currentLevel = COLOR_VIOLET;
-//                break;
+    private int setMatchColor(int match) {
+        switch (match) {
+            case COLOR_RED:
+                toBeMatch.setImageResource(R.drawable.red_footer);
+                matchColor = COLOR_RED;
+                break;
+            case COLOR_ORANGE:
+                toBeMatch.setImageResource(R.drawable.orange_footer);
+                matchColor = COLOR_ORANGE;
+                break;
+            case COLOR_YELLOW:
+                toBeMatch.setImageResource(R.drawable.yellow_footer);
+                matchColor = COLOR_YELLOW;
+                break;
+            case COLOR_GREEN:
+                toBeMatch.setImageResource(R.drawable.green_footer);
+                matchColor = COLOR_GREEN;
+                break;
+            case COLOR_BLUE:
+                toBeMatch.setImageResource(R.drawable.blue_footer);
+                matchColor = COLOR_BLUE;
+                break;
+            case COLOR_INDIGO:
+                toBeMatch.setImageResource(R.drawable.indigo_footer);
+                matchColor = COLOR_INDIGO;
+                break;
+            case COLOR_VIOLET:
+                toBeMatch.setImageResource(R.drawable.violet_footer);
+                matchColor = COLOR_VIOLET;
+                break;
+        }
+        return match;
+    }
+
+    //randomizes the colors around the board
+    private void genMatchingColor(int correct) {
+
+        int[] genBoardColor = {COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET};
+
+
+        switch (correct) {
+            case COLOR_RED:
+                matchColor = COLOR_RED;
+                break;
+            case COLOR_ORANGE:
+                matchColor = COLOR_ORANGE;
+                break;
+            case COLOR_YELLOW:
+                matchColor = COLOR_YELLOW;
+                break;
+            case COLOR_GREEN:
+                matchColor = COLOR_GREEN;
+                break;
+            case COLOR_BLUE:
+                matchColor = COLOR_BLUE;
+                break;
+            case COLOR_INDIGO:
+                matchColor = COLOR_INDIGO;
+                break;
+            case COLOR_VIOLET:
+                matchColor = COLOR_VIOLET;
+                break;
+
+        }
+
+    }
+
+//add int color
+//    private void boardPositionIncorrect(int posi, int color) {
+//        List <Integer> temp;
+//
+//        List<Integer> position = new ArrayList<Integer>();
+//        position.add(B_00); //value = 1
+//        position.add(B_01); //value = 2
+//        position.add(B_10); //value = 3
+//        position.add(B_11); //value = 4
+//
+//        for(int i = 0; i < position.size(); i++){
+//            if(i == posi) {
+//                position.remove(i);
+//            }
+//        }
+//
+//        temp = position;
+
+//        List<Integer> colors = new ArrayList<Integer>();
+//        colors.add(COLOR_RED);
+//        colors.add(COLOR_ORANGE);
+//        colors.add(COLOR_YELLOW);
+//        colors.add(COLOR_GREEN);
+//        colors.add(COLOR_BLUE);
+//        colors.add(COLOR_INDIGO);
+//        colors.add(COLOR_VIOLET);
+//
+//        for(int i = 0; i < colors.size(); i++){
+//            if(i == color) {
+//                colors.remove(i);
+//            }
+//        }
+
+
+//        for(int k = 0; k <temp.size(); k++){
+//            if(k == B_00){
+//                button_00(color);
+//            }else if(k == B_01){
+//                button_01(color);
+//            }else if(k == B_10){
+//                button_10(color);
+//            }else{
+//                button_11(color);
+//            }
 //        }
 //    }
 
+
+    public void button_00(int color) {
+       switch (color) {
+           case COLOR_RED:
+               btn_00.setImageResource(R.drawable.red1);
+               break;
+           case COLOR_ORANGE:
+               btn_00.setImageResource(R.drawable.orange1);
+               break;
+           case COLOR_YELLOW:
+               btn_00.setImageResource(R.drawable.yellow1);
+               break;
+           case COLOR_GREEN:
+               btn_00.setImageResource(R.drawable.green1);
+               break;
+           case COLOR_BLUE:
+               btn_00.setImageResource(R.drawable.blue1);
+               break;
+           case COLOR_INDIGO:
+               btn_00.setImageResource(R.drawable.indigo1);
+               break;
+           case COLOR_VIOLET:
+               btn_00.setImageResource(R.drawable.violet1);
+               break;
+       }
+    }
+
+    public void button_01(int color) {
+        switch (color) {
+            case COLOR_RED:
+                btn_01.setImageResource(R.drawable.red1);
+                break;
+            case COLOR_ORANGE:
+                btn_01.setImageResource(R.drawable.orange1);
+                break;
+            case COLOR_YELLOW:
+                btn_01.setImageResource(R.drawable.yellow1);
+                break;
+            case COLOR_GREEN:
+                btn_01.setImageResource(R.drawable.green1);
+                break;
+            case COLOR_BLUE:
+                btn_01.setImageResource(R.drawable.blue1);
+                break;
+            case COLOR_INDIGO:
+                btn_01.setImageResource(R.drawable.indigo1);
+                break;
+            case COLOR_VIOLET:
+                btn_01.setImageResource(R.drawable.violet1);
+                break;
+        }
+    }
+
+    public void button_10(int color) {
+        switch (color) {
+            case COLOR_RED:
+                btn_10.setImageResource(R.drawable.red1);
+                break;
+            case COLOR_ORANGE:
+                btn_10.setImageResource(R.drawable.orange1);
+                break;
+            case COLOR_YELLOW:
+                btn_10.setImageResource(R.drawable.yellow1);
+                break;
+            case COLOR_GREEN:
+                btn_10.setImageResource(R.drawable.green1);
+                break;
+            case COLOR_BLUE:
+                btn_10.setImageResource(R.drawable.blue1);
+                break;
+            case COLOR_INDIGO:
+                btn_10.setImageResource(R.drawable.indigo1);
+                break;
+            case COLOR_VIOLET:
+                btn_10.setImageResource(R.drawable.violet1);
+                break;
+        }
+    }
+
+    public void button_11(int color) {
+        switch (color) {
+            case COLOR_RED:
+                btn_11.setImageResource(R.drawable.red1);
+                break;
+            case COLOR_ORANGE:
+                btn_11.setImageResource(R.drawable.orange1);
+                break;
+            case COLOR_YELLOW:
+                btn_11.setImageResource(R.drawable.yellow1);
+                break;
+            case COLOR_GREEN:
+                btn_11.setImageResource(R.drawable.green1);
+                break;
+            case COLOR_BLUE:
+                btn_11.setImageResource(R.drawable.blue1);
+                break;
+            case COLOR_INDIGO:
+                btn_11.setImageResource(R.drawable.indigo1);
+                break;
+            case COLOR_VIOLET:
+                btn_11.setImageResource(R.drawable.violet1);
+                break;
+        }
+    }
+
+    //
+    private void boardPositionCorrect(int pos, int color) {
+
+        switch (pos) {
+            case B_00:
+                button_00(color);
+                bPosition = B_00;
+                break;
+            case B_01:
+                button_01(color);
+                bPosition = B_01;
+                break;
+            case B_10:
+                button_10(color);
+                bPosition = B_10;
+                break;
+            case B_11:
+                button_11(color);
+                bPosition = B_11;
+        }
+    }
+
+    //randomizes the colors in an array
+    public static int[] randomColorArray(int[] array) {
+        Random rgen = new Random(); //generates random number
+
+        for (int i = 0; i < array.length; i++) {
+            int randomPosition = rgen.nextInt(array.length);
+            int temp = array[i];
+            array[i] = array[randomPosition];
+            array[randomPosition] = temp;
+        }
+
+        return array;
+    }
 
 
     //pause menu method
@@ -190,9 +434,11 @@ public class GameView extends AppCompatActivity {
 
 
     //correct color clicked method
-    public void correctColor(View v) {
-        btn_00.setVisibility(View.INVISIBLE);
+    public void correctColor() {
+        //btn_00.setVisibility(View.INVISIBLE);
+
     }
+
     //incorrect color clicked method
     public void incorrectColor(View v) {
         btn_00.setVisibility(View.VISIBLE);
