@@ -1,11 +1,14 @@
 package com.example.colorclick;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
@@ -46,17 +49,23 @@ public class GameView extends AppCompatActivity {
     int currentLevel = 1;
 
     //comment here
-    Handler handler;
-    Runnable runnable;
-    ProgressBar timer;
+//    Handler handler;
+//    Runnable runnable;
+//    ProgressBar timer;
+    TextView timer;
+    public long counter = 5;
+    public long counterRemaining;
+    CountDownTimer count;
+    ImageButton pauseButton;
     Random r1, r2;
     Dialog pause;
     View v;
 
     boolean rightColor = false;
 
-    int currentTime = 5000;
-    int startTime = 5000;
+    public long currentTime = 5000;
+    public long goDownTime = 1000;
+    public long temp = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,33 +123,73 @@ public class GameView extends AppCompatActivity {
         //initializes the pause variable
         pause = new Dialog(this);
 
+        pauseButton = (ImageButton) findViewById(R.id.button_pause);
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+                // Opens pause menu dialog
+                pauseMenu(v);
+
+                // Cancels the CountDownTimer while the pause menu is open
+                count.cancel();
+            }
+        });
+
+        // Creates an area for the timer on the GameView
+        timer = (TextView) findViewById(R.id.timerView);
+
+        // The initial CountDownTimer is created upon playing the game
+        count = new CountDownTimer(currentTime, goDownTime){
+                public void onTick ( long millisUntilFinished){
+
+                        // Sets the timer area with the counter
+                        timer.setText(String.valueOf(counter));
+
+                        // Counter is deducted by 1 every second
+                        counter--;
+
+                        // Keeps track of the initial counter
+                        counterRemaining = counter;
+
+                        // Keeps track of the initial time left
+                        temp = millisUntilFinished;
+            }
+                // Calls GameOver page once timer runs out
+                public void onFinish () {
+                timer.setText("0");
+                openGameOver();
+            }
+         // Starts the timer
+        }.start();
+
         //find the timer/progressbar id
-        timer = findViewById(R.id.timer_progressbar);
+//        timer = findViewById(R.id.timer_progressbar);
 
         //set the initial timer to 5 seconds
-        timer.setMax(startTime);
-        timer.setProgress(startTime);
+//        timer.setMax(startTime);
+//        timer.setProgress(startTime);
 
         //handles the timer/progressbar countdown and main loop
-        handler = new Handler();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-                currentTime = currentTime - 100;
-                timer.setProgress(currentTime);
-                if (currentTime > 0) {
-                    handler.postDelayed(runnable, 100);
-                } else if (currentTime == 0) {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            openGameOver();
-                        }
-                    }, 100);
-                }
-            }
-        };
-        handler.postDelayed(runnable, 100);
+//        handler = new Handler();
+//        runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                currentTime = currentTime - 100;
+//                timer.setProgress(currentTime);
+//                if (currentTime > 0) {
+//                    handler.postDelayed(runnable, 100);
+//                } else if (currentTime == 0) {
+//                    handler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            openGameOver();
+//                        }
+//                    }, 100);
+//                }
+//            }
+//        };
+//        handler.postDelayed(runnable, 100);
 
 
         //playGame();
@@ -406,16 +455,76 @@ public class GameView extends AppCompatActivity {
     //pause menu method
     public void pauseMenu(View v) {
         TextView closebutton;
+        TextView resume;
 
+        // Brings up the dialog when the pause button is clicked
         pause.setContentView(R.layout.pause_menu);
+
+        // Recreates a CountDownTimer with accurate time every time the 'X' button is clicked
         closebutton = (TextView) pause.findViewById(R.id.closebutton);
         closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Makes sure the counter is accurate upon resuming game
+                counterRemaining++;
+
+                // A new CountDownTimer is created upon closing the pause menu
+                count = new CountDownTimer(temp, goDownTime){
+                    public void onTick (long millisUntilFinished){
+
+                        // Sets the timer area with the counter
+                        timer.setText(String.valueOf((counterRemaining)));
+
+                        // Tracks the time left
+                        temp = millisUntilFinished;
+
+                        // Counter is deducted by 1 every second
+                        counterRemaining--;
+                    }
+                    // Calls GameOver page once time runs out
+                    public void onFinish () {
+                        timer.setText("0");
+                        openGameOver();
+                    }
+                 // Starts the timer
+                }.start();
+                // Closes pause dialog
                 pause.dismiss();
             }
         });
 
+        // Recreates a CountDownTimer with accurate time every time the resume button is clicked
+        resume = (Button) pause.findViewById(R.id.resumeButton);
+        resume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Makes sure the counter is accurate upon resuming game
+                counterRemaining++;
+
+                // A new CountDownTimer is created upon closing the pause menu
+                count = new CountDownTimer(temp, goDownTime){
+                    public void onTick (long millisUntilFinished){
+
+                        // Sets the timer area with the counter
+                        timer.setText(String.valueOf((counterRemaining)));
+
+                        // Tracks the time left
+                        temp = millisUntilFinished;
+
+                        // Counter is deducted by 1 every second
+                        counterRemaining--;
+                    }
+                    // Calls GameOver page once time runs out
+                    public void onFinish () {
+                        timer.setText("0");
+                        openGameOver();
+                    }
+                    // Starts the timer
+                }.start();
+                // Closes pause dialog
+                pause.dismiss();
+            }
+        });
         //shows the popup menu
         pause.show();
     }
