@@ -48,10 +48,6 @@ public class GameView extends AppCompatActivity {
 
     int currentLevel = 1;
 
-    //comment here
-//    Handler handler;
-//    Runnable runnable;
-//    ProgressBar timer;
     TextView timer;
     public long counter = 5;
     public long counterRemaining;
@@ -162,37 +158,7 @@ public class GameView extends AppCompatActivity {
             }
          // Starts the timer
         }.start();
-
-        //find the timer/progressbar id
-//        timer = findViewById(R.id.timer_progressbar);
-
-        //set the initial timer to 5 seconds
-//        timer.setMax(startTime);
-//        timer.setProgress(startTime);
-
-        //handles the timer/progressbar countdown and main loop
-//        handler = new Handler();
-//        runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                currentTime = currentTime - 100;
-//                timer.setProgress(currentTime);
-//                if (currentTime > 0) {
-//                    handler.postDelayed(runnable, 100);
-//                } else if (currentTime == 0) {
-//                    handler.postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            openGameOver();
-//                        }
-//                    }, 100);
-//                }
-//            }
-//        };
-//        handler.postDelayed(runnable, 100);
-
-
-        //playGame();
+        
     }
 
     //display the random color for player to match
