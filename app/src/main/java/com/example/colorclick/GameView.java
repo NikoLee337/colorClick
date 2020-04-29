@@ -29,7 +29,7 @@ public class GameView extends AppCompatActivity {
     ImageButton btn_00, btn_01, btn_10, btn_11;
     ImageView toBeMatch;
     TextView level;
-    Random r1, r2;
+    Random r1, r2, r3;
     boolean rightColor = false;
 
     private final static int B_00 = 1;
@@ -97,7 +97,7 @@ public class GameView extends AppCompatActivity {
         //generate board
        // genMatchingColor(matchColor);
         boardPositionCorrect(bPosition, matchColor);
-       // boardPositionIncorrect(bPosition, matchColor);
+        boardPositionIncorrect(bPosition, matchColor);
 
 
         //initializes the pause variable
@@ -410,8 +410,8 @@ public class GameView extends AppCompatActivity {
 //        getListOfPositions();
 
 
-        //temporary ArrayList 1
-        List<Integer> temp1;
+        //temporary ArrayList 1 for board positions
+        List<Integer> temp1 = new ArrayList<Integer>();
 
         //ArrayList for board positions
         List<Integer> position = new ArrayList<Integer>();
@@ -420,15 +420,17 @@ public class GameView extends AppCompatActivity {
         position.add(B_10); //value = 3
         position.add(B_11); //value = 4
 
+        //FOR FUTURE: call another method to add more spots depending on level
+
         for (int i = 0; i < position.size(); i++) {
-            if (i + 1 == posi) {
+            if (position.get(i) == posi) {
                 position.remove(i);
             }
         }
         temp1 = position;
 
-        //temporary ArrayList 2
-        List<Integer> temp2;
+        //temporary ArrayList 2 for colors
+        List<Integer> temp2 = new ArrayList<Integer>();
 
         //ArrayList for
         List<Integer> colors = new ArrayList<Integer>();
@@ -441,25 +443,24 @@ public class GameView extends AppCompatActivity {
         colors.add(COLOR_VIOLET);
 
         for (int i = 0; i < colors.size(); i++) {
-            if (i + 1 == color) {
+            if (colors.get(i) == color) { //color = 5 at index of 4
                 colors.remove(i);
             }
         }
         temp2 = colors;
 
 
+        r3 = new Random();
 
-
-
-        for (int k = 0; k < temp2.size(); k++) {
-            if (k == B_00) {
-                getButton_00(color);
-            } else if (k == B_01) {
-                getButton_01(color);
-            } else if (k == B_10) {
-                getButton_10(color);
+        for (int k = 0; k < temp1.size(); k++) {
+            if (temp1.get(k) == B_00) { //if this spot is avaliable, assign a color, if not move on
+                getButton_00(r3.nextInt(temp2.size()) + 1);
+            } else if (temp1.get(k) == B_01) {
+                getButton_01(r3.nextInt(temp2.size()) + 1);
+            } else if (temp1.get(k) == B_10) {
+                getButton_10(r3.nextInt(temp2.size()) + 1);
             } else {
-                getButton_11(color);
+                getButton_11(r3.nextInt(temp2.size()) + 1);
             }
         }
     }
@@ -484,32 +485,7 @@ public class GameView extends AppCompatActivity {
         }
     }
 
-//    public void getListOfColors(){
-//        List<Integer> position = new ArrayList<Integer>();
-//        position.add(B_00); //value = 1
-//        position.add(B_01); //value = 2
-//        position.add(B_10); //value = 3
-//        position.add(B_11); //value = 4
-//    }
-//
-//    public void getListOfPositions(){
-//        List<Integer> colors = new ArrayList<Integer>();
-//        colors.add(COLOR_RED);
-//        colors.add(COLOR_ORANGE);
-//        colors.add(COLOR_YELLOW);
-//        colors.add(COLOR_GREEN);
-//        colors.add(COLOR_BLUE);
-//        colors.add(COLOR_INDIGO);
-//        colors.add(COLOR_VIOLET);
-//    }
-//
-//    public void remove(){
-//        for (int i = 0; i < colors.size(); i++) {
-//            if (i + 1 == color) {
-//                colors.remove(i);
-//            }
-//        }
-//    }
+
 }
 
 
