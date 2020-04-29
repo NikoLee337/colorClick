@@ -46,6 +46,7 @@ public class GameView extends AppCompatActivity {
     private final static int COLOR_BLUE = 5;
     private final static int COLOR_INDIGO = 6;
     private final static int COLOR_VIOLET = 7;
+
     int matchColor = 1;
 
     int currentLevel = 1;
@@ -97,7 +98,7 @@ public class GameView extends AppCompatActivity {
         //generate board
         genMatchingColor(matchColor);
         boardPositionCorrect(bPosition, matchColor);
-        //boardPositionIncorrect(bPosition, matchColor);
+        boardPositionIncorrect(bPosition, matchColor);
 
 
         //initializes the pause variable
@@ -234,7 +235,7 @@ public class GameView extends AppCompatActivity {
 
     //*********************************************************************************//
 
-    //display the random color for player to match
+    //display the random color for player to match (small image at bottom right corner)
     public int setMatchColor(int match) {
         switch (match) {
             case COLOR_RED:
@@ -374,12 +375,8 @@ public class GameView extends AppCompatActivity {
 
     }
 
-    //randomizes the colors around the board
+    //randomizes the colors around the board (the correct color on the board)
     public void genMatchingColor(int correct) {
-
-        int[] genBoardColor = {COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET};
-
-
         switch (correct) {
             case COLOR_RED:
                 matchColor = COLOR_RED;
@@ -417,7 +414,7 @@ public class GameView extends AppCompatActivity {
         position.add(B_11); //value = 4
 
         for (int i = 0; i < position.size(); i++) {
-            if (i == posi) {
+            if (i + 1 == posi) {
                 position.remove(i);
             }
         }
@@ -434,7 +431,7 @@ public class GameView extends AppCompatActivity {
         colors.add(COLOR_VIOLET);
 
         for (int i = 0; i < colors.size(); i++) {
-            if (i == color) {
+            if (i + 1 == color) {
                 colors.remove(i);
             }
         }
