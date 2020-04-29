@@ -55,7 +55,6 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/textView_blank2"
             android:background="@color/transparent"
-            android:onClick="pauseMenu"
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
             android:src="@drawable/ic_baseline_pause"
@@ -171,10 +170,9 @@
 
         <!--[PLACEHOLDER] Timer-->
         <TextView
-            android:id="@+id/textView_timer"
+            android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Timer"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank3"
@@ -198,23 +196,23 @@
             android:background="@color/transparent"/>
 
         <!--Progress/Timer Bar -->
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:id="@+id/timer_progressbar"
-            android:layout_below="@id/textView_timer"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:progressTint="@color/red"/> <!--changes progressbar color-->
+<!--        <ProgressBar-->
+<!--            style="?android:attr/progressBarStyleHorizontal"-->
+<!--            android:id="@+id/timer_progressbar"-->
+<!--            android:layout_below="@id/textView_timer"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:paddingTop="5dp"-->
+<!--            android:paddingBottom="5dp"-->
+<!--            android:progressTint="@color/red"/> &lt;!&ndash;changes progressbar color&ndash;&gt;-->
 
         <!--Spacer Footer2 -->
-        <TextView
-            android:id="@+id/textView_footer2"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/violet"
-            android:layout_alignBottom="@id/timer_progressbar"/>
+<!--        <TextView-->
+<!--            android:id="@+id/textView_footer2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="5dp"-->
+<!--            android:background="@color/violet"-->
+<!--            android:layout_alignBottom="@id/timer_progressbar"/>-->
     </RelativeLayout>
     <!--End Relative2-->
 

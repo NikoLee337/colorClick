@@ -1,11 +1,14 @@
 package com.example.colorclick;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
@@ -46,15 +49,35 @@ public class GameView extends AppCompatActivity {
     int currentLevel = 1;
 
     //comment here
-    Handler handler;
-    Runnable runnable;
-    ProgressBar timer;
-    Random r1, r2, r3;
+//<<<<<<< HEAD
+//    Handler handler;
+//    Runnable runnable;
+//    ProgressBar timer;
+//    Random r1, r2, r3;
+//    Dialog pause;
+//    View v;
+//
+//    int currentTime = 5000;
+//    int startTime = 5000;
+//=======
+//    Handler handler;
+//    Runnable runnable;
+//    ProgressBar timer;
+    TextView timer;
+    public long counter = 5;
+    public long counterRemaining;
+    CountDownTimer count;
+    ImageButton pauseButton;
+    Random r1, r2;
     Dialog pause;
     View v;
 
-    int currentTime = 5000;
-    int startTime = 5000;
+    boolean rightColor = false;
+
+    public long currentTime = 5000;
+    public long goDownTime = 1000;
+    public long temp = 0;
+//>>>>>>> origin/BackUpcolorClick
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +114,7 @@ public class GameView extends AppCompatActivity {
         //generate board
         genMatchingColor(matchColor);
         boardPositionCorrect(bPosition, matchColor);
-        boardPositionIncorrect(bPosition, matchColor);
+        //boardPositionIncorrect(bPosition, matchColor);
 
 //        button_00(matchColor);
 //        button_01(matchColor);
@@ -115,33 +138,73 @@ public class GameView extends AppCompatActivity {
         //initializes the pause variable
         pause = new Dialog(this);
 
+        pauseButton = (ImageButton) findViewById(R.id.button_pause);
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+                // Opens pause menu dialog
+                pauseMenu(v);
+
+                // Cancels the CountDownTimer while the pause menu is open
+                count.cancel();
+            }
+        });
+
+        // Creates an area for the timer on the GameView
+        timer = (TextView) findViewById(R.id.timerView);
+
+        // The initial CountDownTimer is created upon playing the game
+        count = new CountDownTimer(currentTime, goDownTime){
+                public void onTick ( long millisUntilFinished){
+
+                        // Sets the timer area with the counter
+                        timer.setText(String.valueOf(counter));
+
+                        // Counter is deducted by 1 every second
+                        counter--;
+
+                        // Keeps track of the initial counter
+                        counterRemaining = counter;
+
+                        // Keeps track of the initial time left
+                        temp = millisUntilFinished;
+            }
+                // Calls GameOver page once timer runs out
+                public void onFinish () {
+                timer.setText("0");
+                openGameOver();
+            }
+         // Starts the timer
+        }.start();
+
         //find the timer/progressbar id
-        timer = findViewById(R.id.timer_progressbar);
+//        timer = findViewById(R.id.timer_progressbar);
 
         //set the initial timer to 5 seconds
-        timer.setMax(startTime);
-        timer.setProgress(startTime);
+//        timer.setMax(startTime);
+//        timer.setProgress(startTime);
 
         //handles the timer/progressbar countdown and main loop
-        handler = new Handler();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-                currentTime = currentTime - 100;
-                timer.setProgress(currentTime);
-                if (currentTime > 0) {
-                    handler.postDelayed(runnable, 100);
-                } else if (currentTime == 0) {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            openGameOver();
-                        }
-                    }, 100);
-                }
-            }
-        };
-        handler.postDelayed(runnable, 100);
+//        handler = new Handler();
+//        runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                currentTime = currentTime - 100;
+//                timer.setProgress(currentTime);
+//                if (currentTime > 0) {
+//                    handler.postDelayed(runnable, 100);
+//                } else if (currentTime == 0) {
+//                    handler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            openGameOver();
+//                        }
+//                    }, 100);
+//                }
+//            }
+//        };
+//        handler.postDelayed(runnable, 100);
 
 
         //playGame();
@@ -210,63 +273,63 @@ public class GameView extends AppCompatActivity {
     }
 
     //add int color
-    private void boardPositionIncorrect(int cp, int cc) {
-        List<Integer> temp1; //Temporary ArrayList to store button positions
-        List<Integer> position = new ArrayList<Integer>();
-        position.add(B_00); //value = 1
-        position.add(B_01); //value = 2
-        position.add(B_10); //value = 3
-        position.add(B_11); //value = 4
-
-        //Removing correct BUTTON POSITION from ArrayList
-        for (int i = 0; i < position.size(); i++) {
-            if (i == cp) {
-                position.remove(i);
-            }
-        }
-
-        temp1 = position; //ArrayList with button positions without correct button
-
-        List<Integer> temp2; //temporary ArrayList to store COLORS
-        List<Integer> colors = new ArrayList<Integer>(); //ArrayList for COLORS
-        colors.add(COLOR_RED);
-        colors.add(COLOR_ORANGE);
-        colors.add(COLOR_YELLOW);
-        colors.add(COLOR_GREEN);
-        colors.add(COLOR_BLUE);
-        colors.add(COLOR_INDIGO);
-        colors.add(COLOR_VIOLET);
-
-        //Removing correct COLOR from ArrayList
-        for (int i = 0; i < colors.size(); i++) {
-            if (i == cc) {
-                colors.remove(i);
-            }
-        }
-
-        temp2 = colors; //Storing ArrayList without correct into temporary ArrayList
-
-        List<Integer> temp3 = new ArrayList<Integer>(); //New temporary ArrayList storing x amount of color values
-        //Random for a COLOR to display that is not correct color
-        Random r = new Random();
-
-        //For each button leftover, random a COLOR and store into temp3 ArrayList
-//        for(int j = 0; j < temp1.size(); j++ ){
-//            temp3.add(r.nextInt(temp2.size())); //COLOR int value
+//    private void boardPositionIncorrect(int cp, int cc) {
+//        List<Integer> temp1; //Temporary ArrayList to store button positions
+//        List<Integer> position = new ArrayList<Integer>();
+//        position.add(B_00); //value = 1
+//        position.add(B_01); //value = 2
+//        position.add(B_10); //value = 3
+//        position.add(B_11); //value = 4
+//
+//        //Removing correct BUTTON POSITION from ArrayList
+//        for (int i = 0; i < position.size(); i++) {
+//            if (i == cp) {
+//                position.remove(i);
+//            }
 //        }
-
-        for (int k = 0; k < temp1.size(); k++) {
-            if (k == B_00) {
-                button_00(r.nextInt(temp2.size()));
-            } else if (k == B_01) {
-                button_01(r.nextInt(temp2.size()));
-            } else if (k == B_10) {
-                button_10(r.nextInt(temp2.size()));
-            } else {
-                button_11(r.nextInt(temp2.size()));
-            }
-        }
-    }
+//
+//        temp1 = position; //ArrayList with button positions without correct button
+//
+//        List<Integer> temp2; //temporary ArrayList to store COLORS
+//        List<Integer> colors = new ArrayList<Integer>(); //ArrayList for COLORS
+//        colors.add(COLOR_RED);
+//        colors.add(COLOR_ORANGE);
+//        colors.add(COLOR_YELLOW);
+//        colors.add(COLOR_GREEN);
+//        colors.add(COLOR_BLUE);
+//        colors.add(COLOR_INDIGO);
+//        colors.add(COLOR_VIOLET);
+//
+//        //Removing correct COLOR from ArrayList
+//        for (int i = 0; i < colors.size(); i++) {
+//            if (i == cc) {
+//                colors.remove(i);
+//            }
+//        }
+//
+//        temp2 = colors; //Storing ArrayList without correct into temporary ArrayList
+//
+//        List<Integer> temp3 = new ArrayList<Integer>(); //New temporary ArrayList storing x amount of color values
+//        //Random for a COLOR to display that is not correct color
+//        Random r = new Random();
+//
+//        //For each button leftover, random a COLOR and store into temp3 ArrayList
+////        for(int j = 0; j < temp1.size(); j++ ){
+////            temp3.add(r.nextInt(temp2.size())); //COLOR int value
+////        }
+//
+//        for (int k = 0; k < temp1.size(); k++) {
+//            if (k == B_00) {
+//                button_00(r.nextInt(temp2.size()));
+//            } else if (k == B_01) {
+//                button_01(r.nextInt(temp2.size()));
+//            } else if (k == B_10) {
+//                button_10(r.nextInt(temp2.size()));
+//            } else {
+//                button_11(r.nextInt(temp2.size()));
+//            }
+//        }
+//    }
 
 
 //    private void genIncorrectColor(int cc){
@@ -439,16 +502,76 @@ public class GameView extends AppCompatActivity {
     //pause menu method
     public void pauseMenu(View v) {
         TextView closebutton;
+        TextView resume;
 
+        // Brings up the dialog when the pause button is clicked
         pause.setContentView(R.layout.pause_menu);
+
+        // Recreates a CountDownTimer with accurate time every time the 'X' button is clicked
         closebutton = (TextView) pause.findViewById(R.id.closebutton);
         closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Makes sure the counter is accurate upon resuming game
+                counterRemaining++;
+
+                // A new CountDownTimer is created upon closing the pause menu
+                count = new CountDownTimer(temp, goDownTime){
+                    public void onTick (long millisUntilFinished){
+
+                        // Sets the timer area with the counter
+                        timer.setText(String.valueOf((counterRemaining)));
+
+                        // Tracks the time left
+                        temp = millisUntilFinished;
+
+                        // Counter is deducted by 1 every second
+                        counterRemaining--;
+                    }
+                    // Calls GameOver page once time runs out
+                    public void onFinish () {
+                        timer.setText("0");
+                        openGameOver();
+                    }
+                 // Starts the timer
+                }.start();
+                // Closes pause dialog
                 pause.dismiss();
             }
         });
 
+        // Recreates a CountDownTimer with accurate time every time the resume button is clicked
+        resume = (Button) pause.findViewById(R.id.resumeButton);
+        resume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Makes sure the counter is accurate upon resuming game
+                counterRemaining++;
+
+                // A new CountDownTimer is created upon closing the pause menu
+                count = new CountDownTimer(temp, goDownTime){
+                    public void onTick (long millisUntilFinished){
+
+                        // Sets the timer area with the counter
+                        timer.setText(String.valueOf((counterRemaining)));
+
+                        // Tracks the time left
+                        temp = millisUntilFinished;
+
+                        // Counter is deducted by 1 every second
+                        counterRemaining--;
+                    }
+                    // Calls GameOver page once time runs out
+                    public void onFinish () {
+                        timer.setText("0");
+                        openGameOver();
+                    }
+                    // Starts the timer
+                }.start();
+                // Closes pause dialog
+                pause.dismiss();
+            }
+        });
         //shows the popup menu
         pause.show();
     }
