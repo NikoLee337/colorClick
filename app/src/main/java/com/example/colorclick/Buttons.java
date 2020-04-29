@@ -1,14 +1,7 @@
 package com.example.colorclick;
 
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Buttons extends GameView {
 
@@ -34,31 +27,31 @@ public class Buttons extends GameView {
     public int setMatchColor(int match) {
         switch (match) {
             case COLOR_RED:
-                toBeMatch.setImageResource(R.drawable.red_footer);
+                matchTheColor.setImageResource(R.drawable.red_footer);
                 matchColor = COLOR_RED;
                 break;
             case COLOR_ORANGE:
-                toBeMatch.setImageResource(R.drawable.orange_footer);
+                matchTheColor.setImageResource(R.drawable.orange_footer);
                 matchColor = COLOR_ORANGE;
                 break;
             case COLOR_YELLOW:
-                toBeMatch.setImageResource(R.drawable.yellow_footer);
+                matchTheColor.setImageResource(R.drawable.yellow_footer);
                 matchColor = COLOR_YELLOW;
                 break;
             case COLOR_GREEN:
-                toBeMatch.setImageResource(R.drawable.green_footer);
+                matchTheColor.setImageResource(R.drawable.green_footer);
                 matchColor = COLOR_GREEN;
                 break;
             case COLOR_BLUE:
-                toBeMatch.setImageResource(R.drawable.blue_footer);
+                matchTheColor.setImageResource(R.drawable.blue_footer);
                 matchColor = COLOR_BLUE;
                 break;
             case COLOR_INDIGO:
-                toBeMatch.setImageResource(R.drawable.indigo_footer);
+                matchTheColor.setImageResource(R.drawable.indigo_footer);
                 matchColor = COLOR_INDIGO;
                 break;
             case COLOR_VIOLET:
-                toBeMatch.setImageResource(R.drawable.violet_footer);
+                matchTheColor.setImageResource(R.drawable.violet_footer);
                 matchColor = COLOR_VIOLET;
                 break;
         }
@@ -171,7 +164,7 @@ public class Buttons extends GameView {
     }
 
     //randomizes the colors around the board
-    public void genMatchingColor(int correct) {
+    public void getMatchColor(int correct) {
 
         int[] genBoardColor = {COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET};
 
@@ -203,7 +196,7 @@ public class Buttons extends GameView {
 
     }
 
-    public void boardPositionIncorrect(int posi, int color) {
+    public void getBoardPositionIncorrect(int posi, int color) {
         List<Integer> temp;
 
         List<Integer> position = new ArrayList<Integer>();
@@ -249,7 +242,7 @@ public class Buttons extends GameView {
         }
     }
 
-    public void boardPositionCorrect(int pos, int color) {
+    public void getBoardPositionCorrect(int pos, int color) {
         switch (pos) {
             case B_00:
                 button_00(color);
