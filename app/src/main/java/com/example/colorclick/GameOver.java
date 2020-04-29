@@ -7,8 +7,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.*;
-
 public class GameOver extends AppCompatActivity {
 
     Button playagain;
@@ -53,7 +51,7 @@ public class GameOver extends AppCompatActivity {
     }
 
     public void openMainMenu() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
 

@@ -1,238 +1,34 @@
 package com.example.colorclick;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.colorclick.R.drawable.abc_btn_switch_to_on_mtrl_00001;
-import static com.example.colorclick.R.drawable.yellow1;
+public class Buttons extends GameView {
 
-public class GameView extends AppCompatActivity {
-    //buttons
-    ImageButton btn_00, btn_01, btn_10, btn_11;
-    ImageView toBeMatch;
-    TextView level;
-    Random r1, r2;
-    boolean rightColor = false;
-
-
-    private final static int B_00 = 1;
-    private final static int B_01 = 2;
-    private final static int B_10 = 3;
-    private final static int B_11 = 4;
+    public final static int B_00 = 1;
+    public final static int B_01 = 2;
+    public final static int B_10 = 3;
+    public final static int B_11 = 4;
     int bPosition = B_00;
 
-    private final static int COLOR_RED = 1;
-    private final static int COLOR_ORANGE = 2;
-    private final static int COLOR_YELLOW = 3;
-    private final static int COLOR_GREEN = 4;
-    private final static int COLOR_BLUE = 5;
-    private final static int COLOR_INDIGO = 6;
-    private final static int COLOR_VIOLET = 7;
+    public final static int COLOR_RED = 1;
+    public final static int COLOR_ORANGE = 2;
+    public final static int COLOR_YELLOW = 3;
+    public final static int COLOR_GREEN = 4;
+    public final static int COLOR_BLUE = 5;
+    public final static int COLOR_INDIGO = 6;
+    public final static int COLOR_VIOLET = 7;
     int matchColor = 1;
 
     int currentLevel = 1;
 
-
-    //Timer Variables
-    TextView timer;
-    public long counter = 5;
-    public long counterRemaining;
-    CountDownTimer count;
-    ImageButton pauseButton;
-    public long currentTime = 5000;
-    public long goDownTime = 1000;
-    public long temp = 0;
-    Dialog pause;
-    View v;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
-
-        //color button ids
-        btn_00 = findViewById(R.id.button_00);
-        btn_01 = findViewById(R.id.button_01);
-        btn_10 = findViewById(R.id.button_10);
-        btn_11 = findViewById(R.id.button_11);
-
-        //color needed to be matched to other circles on the board
-        toBeMatch = findViewById(R.id.imageView_color);
-        toBeMatch.setClickable(false);
-
-        //text variable for level
-        level = findViewById(R.id.textView_level1);
-
-        //display the level
-        level.setText("Level " + currentLevel);
-
-        //randomize the matched color
-        r1 = new Random();
-        matchColor = r1.nextInt(7) + 1;
-
-        r2 = new Random();
-        bPosition = r2.nextInt(4) + 1;
-
-
-
-        setMatchColor(matchColor);
-        //generate board
-        genMatchingColor(matchColor);
-        boardPositionCorrect(bPosition, matchColor);
-        //boardPositionIncorrect(bPosition, matchColor);
-
-
-        //initializes the pause variable
-        pause = new Dialog(this);
-        pauseButton = (ImageButton) findViewById(R.id.button_pause);
-        pauseButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                // Opens pause menu dialog
-                pauseMenu(v);
-
-                // Cancels the CountDownTimer while the pause menu is open
-                count.cancel();
-            }
-        });
-
-        // Creates an area for the timer on the GameView
-        timer = (TextView) findViewById(R.id.timerView);
-
-        // The initial CountDownTimer is created upon playing the game
-        count = new CountDownTimer(currentTime, goDownTime) {
-            public void onTick(long millisUntilFinished) {
-
-                // Sets the timer area with the counter
-                timer.setText(String.valueOf(counter));
-
-                // Counter is deducted by 1 every second
-                counter--;
-
-                // Keeps track of the initial counter
-                counterRemaining = counter;
-
-                // Keeps track of the initial time left
-                temp = millisUntilFinished;
-            }
-
-            // Calls GameOver page once timer runs out
-            public void onFinish() {
-                timer.setText("0");
-                openGameOver();
-            }
-            // Starts the timer
-        }.start();
-
-    }//end of on create
-
-
-    //pause menu method
-    public void pauseMenu(View v) {
-        TextView closebutton;
-        TextView resume;
-
-        // Brings up the dialog when the pause button is clicked
-        pause.setContentView(R.layout.pause_menu);
-
-        // Recreates a CountDownTimer with accurate time every time the 'X' button is clicked
-        closebutton = (TextView) pause.findViewById(R.id.closebutton);
-        closebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Makes sure the counter is accurate upon resuming game
-                counterRemaining++;
-
-                // A new CountDownTimer is created upon closing the pause menu
-                count = new CountDownTimer(temp, goDownTime) {
-                    public void onTick(long millisUntilFinished) {
-
-                        // Sets the timer area with the counter
-                        timer.setText(String.valueOf((counterRemaining)));
-
-                        // Tracks the time left
-                        temp = millisUntilFinished;
-
-                        // Counter is deducted by 1 every second
-                        counterRemaining--;
-                    }
-
-                    // Calls GameOver page once time runs out
-                    public void onFinish() {
-                        timer.setText("0");
-                        openGameOver();
-                    }
-                    // Starts the timer
-                }.start();
-                // Closes pause dialog
-                pause.dismiss();
-            }
-        });
-
-        // Recreates a CountDownTimer with accurate time every time the resume button is clicked
-        resume = (Button) pause.findViewById(R.id.resumeButton);
-        resume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Makes sure the counter is accurate upon resuming game
-                counterRemaining++;
-
-                // A new CountDownTimer is created upon closing the pause menu
-                count = new CountDownTimer(temp, goDownTime) {
-                    public void onTick(long millisUntilFinished) {
-
-                        // Sets the timer area with the counter
-                        timer.setText(String.valueOf((counterRemaining)));
-
-                        // Tracks the time left
-                        temp = millisUntilFinished;
-
-                        // Counter is deducted by 1 every second
-                        counterRemaining--;
-                    }
-
-                    // Calls GameOver page once time runs out
-                    public void onFinish() {
-                        timer.setText("0");
-                        openGameOver();
-                    }
-                    // Starts the timer
-                }.start();
-                // Closes pause dialog
-                pause.dismiss();
-            }
-        });
-        //shows the popup menu
-        pause.show();
-    }//end of pause menu actions
-
-
-    //open game over screen method
-    public void openGameOver() {
-        Intent intent = new Intent(this, GameOver.class);
-        startActivity(intent);
-    }
-
-    //*********************************************************************************//
 
     //display the random color for player to match
     public int setMatchColor(int match) {
@@ -472,6 +268,5 @@ public class GameView extends AppCompatActivity {
                 bPosition = B_11;
         }
     }
+
 }
-
-

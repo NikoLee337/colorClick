@@ -4,16 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity {
 
     private Button button;
     private ImageButton playbutton;
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         myDialog = new Dialog(this);
         //button = (Button) findViewById(R.id.button); this is the original instruction btn
