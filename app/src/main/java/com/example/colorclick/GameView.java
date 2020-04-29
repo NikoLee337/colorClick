@@ -44,25 +44,10 @@ public class GameView extends AppCompatActivity {
     private final static int COLOR_BLUE = 5;
     private final static int COLOR_INDIGO = 6;
     private final static int COLOR_VIOLET = 7;
-    int matchColor = COLOR_RED;
-    int otherColor = COLOR_RED;
+    int matchColor = 1;
+
     int currentLevel = 1;
 
-    //comment here
-//<<<<<<< HEAD
-//    Handler handler;
-//    Runnable runnable;
-//    ProgressBar timer;
-//    Random r1, r2, r3;
-//    Dialog pause;
-//    View v;
-//
-//    int currentTime = 5000;
-//    int startTime = 5000;
-//=======
-//    Handler handler;
-//    Runnable runnable;
-//    ProgressBar timer;
     TextView timer;
     public long counter = 5;
     public long counterRemaining;
@@ -77,7 +62,6 @@ public class GameView extends AppCompatActivity {
     public long currentTime = 5000;
     public long goDownTime = 1000;
     public long temp = 0;
-//>>>>>>> origin/BackUpcolorClick
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,14 +91,11 @@ public class GameView extends AppCompatActivity {
         r2 = new Random();
         bPosition = r2.nextInt(4) + 1;
 
-//        r3 = new Random();
-//        otherColor = r1.nextInt(7) + 1;
-
         setMatchColor(matchColor);
         //generate board
         genMatchingColor(matchColor);
         boardPositionCorrect(bPosition, matchColor);
-        //boardPositionIncorrect(bPosition, matchColor);
+       // boardPositionIncorrect(bPosition,matchColor);
 
 //        button_00(matchColor);
 //        button_01(matchColor);
@@ -177,37 +158,7 @@ public class GameView extends AppCompatActivity {
             }
          // Starts the timer
         }.start();
-
-        //find the timer/progressbar id
-//        timer = findViewById(R.id.timer_progressbar);
-
-        //set the initial timer to 5 seconds
-//        timer.setMax(startTime);
-//        timer.setProgress(startTime);
-
-        //handles the timer/progressbar countdown and main loop
-//        handler = new Handler();
-//        runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                currentTime = currentTime - 100;
-//                timer.setProgress(currentTime);
-//                if (currentTime > 0) {
-//                    handler.postDelayed(runnable, 100);
-//                } else if (currentTime == 0) {
-//                    handler.postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            openGameOver();
-//                        }
-//                    }, 100);
-//                }
-//            }
-//        };
-//        handler.postDelayed(runnable, 100);
-
-
-        //playGame();
+        
     }
 
     //display the random color for player to match
@@ -247,6 +198,10 @@ public class GameView extends AppCompatActivity {
 
     //randomizes the colors around the board
     private void genMatchingColor(int correct) {
+
+        int[] genBoardColor = {COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET};
+
+
         switch (correct) {
             case COLOR_RED:
                 matchColor = COLOR_RED;
@@ -269,29 +224,30 @@ public class GameView extends AppCompatActivity {
             case COLOR_VIOLET:
                 matchColor = COLOR_VIOLET;
                 break;
+
         }
+
     }
 
-    //add int color
-//    private void boardPositionIncorrect(int cp, int cc) {
-//        List<Integer> temp1; //Temporary ArrayList to store button positions
+//add int color
+//    private void boardPositionIncorrect(int posi, int color) {
+//        List <Integer> temp;
+//
 //        List<Integer> position = new ArrayList<Integer>();
 //        position.add(B_00); //value = 1
 //        position.add(B_01); //value = 2
 //        position.add(B_10); //value = 3
 //        position.add(B_11); //value = 4
 //
-//        //Removing correct BUTTON POSITION from ArrayList
-//        for (int i = 0; i < position.size(); i++) {
-//            if (i == cp) {
+//        for(int i = 0; i < position.size(); i++){
+//            if(i == posi) {
 //                position.remove(i);
 //            }
 //        }
 //
-//        temp1 = position; //ArrayList with button positions without correct button
-//
-//        List<Integer> temp2; //temporary ArrayList to store COLORS
-//        List<Integer> colors = new ArrayList<Integer>(); //ArrayList for COLORS
+//        temp = position;
+
+//        List<Integer> colors = new ArrayList<Integer>();
 //        colors.add(COLOR_RED);
 //        colors.add(COLOR_ORANGE);
 //        colors.add(COLOR_YELLOW);
@@ -300,88 +256,51 @@ public class GameView extends AppCompatActivity {
 //        colors.add(COLOR_INDIGO);
 //        colors.add(COLOR_VIOLET);
 //
-//        //Removing correct COLOR from ArrayList
-//        for (int i = 0; i < colors.size(); i++) {
-//            if (i == cc) {
-//                colors.remove(i);
-//            }
-//        }
-//
-//        temp2 = colors; //Storing ArrayList without correct into temporary ArrayList
-//
-//        List<Integer> temp3 = new ArrayList<Integer>(); //New temporary ArrayList storing x amount of color values
-//        //Random for a COLOR to display that is not correct color
-//        Random r = new Random();
-//
-//        //For each button leftover, random a COLOR and store into temp3 ArrayList
-////        for(int j = 0; j < temp1.size(); j++ ){
-////            temp3.add(r.nextInt(temp2.size())); //COLOR int value
-////        }
-//
-//        for (int k = 0; k < temp1.size(); k++) {
-//            if (k == B_00) {
-//                button_00(r.nextInt(temp2.size()));
-//            } else if (k == B_01) {
-//                button_01(r.nextInt(temp2.size()));
-//            } else if (k == B_10) {
-//                button_10(r.nextInt(temp2.size()));
-//            } else {
-//                button_11(r.nextInt(temp2.size()));
-//            }
-//        }
-//    }
-
-
-//    private void genIncorrectColor(int cc){
-//        List<Integer> temp2; //temporary ArrayList
-//
-//        List<Integer> colors = new ArrayList<Integer>(); //ArrayList for COLORS
-//        colors.add(COLOR_RED);
-//        colors.add(COLOR_ORANGE);
-//        colors.add(COLOR_YELLOW);
-//        colors.add(COLOR_GREEN);
-//        colors.add(COLOR_BLUE);
-//        colors.add(COLOR_INDIGO);
-//        colors.add(COLOR_VIOLET);
-//
-//        //Removing correct COLOR from ArrayList
 //        for(int i = 0; i < colors.size(); i++){
-//            if(i == cc) {
+//            if(i == color) {
 //                colors.remove(i);
 //            }
 //        }
-//
-//        temp2 = colors; //Storing ArrayList without correct into temporary ArrayList
-//
-//        Random r = new Random();
-//        for(int )
-//        int ic = r.nextInt(temp.size());
+
+
+//        for(int k = 0; k <temp.size(); k++){
+//            if(k == B_00){
+//                button_00(color);
+//            }else if(k == B_01){
+//                button_01(color);
+//            }else if(k == B_10){
+//                button_10(color);
+//            }else{
+//                button_11(color);
+//            }
+//        }
 //    }
+
 
     public void button_00(int color) {
-        switch (color) {
-            case COLOR_RED:
-                btn_00.setImageResource(R.drawable.red1);
-                break;
-            case COLOR_ORANGE:
-                btn_00.setImageResource(R.drawable.orange1);
-                break;
-            case COLOR_YELLOW:
-                btn_00.setImageResource(R.drawable.yellow1);
-                break;
-            case COLOR_GREEN:
-                btn_00.setImageResource(R.drawable.green1);
-                break;
-            case COLOR_BLUE:
-                btn_00.setImageResource(R.drawable.blue1);
-                break;
-            case COLOR_INDIGO:
-                btn_00.setImageResource(R.drawable.indigo1);
-                break;
-            case COLOR_VIOLET:
-                btn_00.setImageResource(R.drawable.violet1);
-                break;
-        }
+       switch (color) {
+           case COLOR_RED:
+               btn_00.setImageResource(R.drawable.red1);
+               break;
+           case COLOR_ORANGE:
+               btn_00.setImageResource(R.drawable.orange1);
+               break;
+           case COLOR_YELLOW:
+               btn_00.setImageResource(R.drawable.yellow1);
+               break;
+           case COLOR_GREEN:
+               btn_00.setImageResource(R.drawable.green1);
+               break;
+           case COLOR_BLUE:
+               btn_00.setImageResource(R.drawable.blue1);
+               break;
+           case COLOR_INDIGO:
+               btn_00.setImageResource(R.drawable.indigo1);
+               break;
+           case COLOR_VIOLET:
+               btn_00.setImageResource(R.drawable.violet1);
+               break;
+       }
     }
 
     public void button_01(int color) {
