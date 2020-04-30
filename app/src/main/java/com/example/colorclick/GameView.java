@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -31,6 +32,8 @@ public class GameView extends AppCompatActivity {
     private final static int B_10 = 3;
     private final static int B_11 = 4;
     int corrButton = B_00; //correct button
+    ArrayList<Integer> positions = new ArrayList<>(Arrays.asList(B_00, B_01, B_10, B_11));
+    ArrayList<Integer> temp1; //TEMPORARY LIST TO STORE POSITIONS WITHOUT CORRECT POSITION(S)
 
     private final static int COLOR_RED = 1;
     private final static int COLOR_ORANGE = 2;
@@ -40,6 +43,8 @@ public class GameView extends AppCompatActivity {
     private final static int COLOR_INDIGO = 6;
     private final static int COLOR_VIOLET = 7;
     int corrColor = 1;//correct color
+    ArrayList<Integer> colors = new ArrayList<>(Arrays.asList(COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET));
+    ArrayList<Integer> temp2; //TEMPORARY LIST TO STORE COLORS OTHER THAN CORRECT COLOR(S)
 
     int currentLevel = 1;
 
@@ -80,11 +85,11 @@ public class GameView extends AppCompatActivity {
         //GENERATING COLORS AND POSITIONS
         //GENERATE THE CORRECT COLOR
         r1 = new Random();
-        corrColor = r1.nextInt(7) + 1;
+        corrColor = r1.nextInt(colors.size()) + 1;
 
         //GENERATE THE CORRECT BUTTON LOCATION(S)
         r2 = new Random();
-        corrButton = r2.nextInt(4) + 1;
+        corrButton = r2.nextInt(positions.size()) + 1;
 
         setMatchColor(corrColor); //SET CORRECT COLOR
         getMatchColor(corrColor); //GET CORRECT COLOR
@@ -228,31 +233,31 @@ public class GameView extends AppCompatActivity {
         switch (match) {
             case COLOR_RED:
                 matchTheColor.setImageResource(R.drawable.red_footer);
-               corrColor = COLOR_RED;
+                corrColor = COLOR_RED;
                 break;
             case COLOR_ORANGE:
                 matchTheColor.setImageResource(R.drawable.orange_footer);
-               corrColor = COLOR_ORANGE;
+                corrColor = COLOR_ORANGE;
                 break;
             case COLOR_YELLOW:
                 matchTheColor.setImageResource(R.drawable.yellow_footer);
-               corrColor = COLOR_YELLOW;
+                corrColor = COLOR_YELLOW;
                 break;
             case COLOR_GREEN:
                 matchTheColor.setImageResource(R.drawable.green_footer);
-               corrColor = COLOR_GREEN;
+                corrColor = COLOR_GREEN;
                 break;
             case COLOR_BLUE:
                 matchTheColor.setImageResource(R.drawable.blue_footer);
-               corrColor = COLOR_BLUE;
+                corrColor = COLOR_BLUE;
                 break;
             case COLOR_INDIGO:
                 matchTheColor.setImageResource(R.drawable.indigo_footer);
-               corrColor = COLOR_INDIGO;
+                corrColor = COLOR_INDIGO;
                 break;
             case COLOR_VIOLET:
                 matchTheColor.setImageResource(R.drawable.violet_footer);
-               corrColor = COLOR_VIOLET;
+                corrColor = COLOR_VIOLET;
                 break;
         }
         return match;
@@ -308,68 +313,89 @@ public class GameView extends AppCompatActivity {
         }
     }//END OF getBPC GETTER
 
+    public void getTemp1List(int posi) {
+        for (int i = 0; i < positions.size(); i++) {
+            if (positions.contains(posi) && positions.get(i) == posi) {
+                positions.remove(i);
+                temp1 = new ArrayList<>(positions);
+                break;
+            }
+        }
+    }
+
+    public void getTemp2List(int color) {
+        for (int j = 0; j < colors.size(); j++) {
+            if (colors.contains(color) && colors.get(j) == color) { //color = 5 at index of 4
+                colors.remove(j);
+                temp2 = new ArrayList<>(colors);
+                break;
+            }
+        }
+    }
+
     //GET METHOD FOR DISPLAYING INCORRECT COLORS ON BOARD
     public void getBoardPositionIncorrect(int posi, int color) {
-
-//        getListOfColors();
-//        remove();
-//        getListOfPositions();
-
-
-        //temporary ArrayList 1 for board positions
-        List<Integer> temp1 = new ArrayList<Integer>();
-
-        //ArrayList for board positions
-        List<Integer> position = new ArrayList<Integer>();
-        position.add(B_00); //value = 1
-        position.add(B_01); //value = 2
-        position.add(B_10); //value = 3
-        position.add(B_11); //value = 4
-
         //FOR FUTURE: call another method to add more spots depending on level
 
-        for (int i = 0; i < position.size(); i++) {
-            if (position.get(i) == posi) {
-                position.remove(i);
-            }
-        }
-        temp1 = position;
-
-        //temporary ArrayList 2 for colors
-        List<Integer> temp2 = new ArrayList<Integer>();
-
-        //ArrayList for
-        List<Integer> colors = new ArrayList<Integer>();
-        colors.add(COLOR_RED);
-        colors.add(COLOR_ORANGE);
-        colors.add(COLOR_YELLOW);
-        colors.add(COLOR_GREEN);
-        colors.add(COLOR_BLUE);
-        colors.add(COLOR_INDIGO);
-        colors.add(COLOR_VIOLET);
-
-        for (int i = 0; i < colors.size(); i++) {
-            if (colors.get(i) == color) { //color = 5 at index of 4
-                colors.remove(i);
-            }
-        }
-        temp2 = colors;
-
+        getTemp1List(posi);
+        getTemp2List(color);
 
         r3 = new Random();
+        int incorrect = r3.nextInt(colors.size()) + 1;
 
         for (int k = 0; k < temp1.size(); k++) {
-            if (temp1.get(k) == B_00) { //if this spot is avaliable, assign a color, if not move on
-                getButton_00(r3.nextInt(temp2.size()) + 1);
-            } else if (temp1.get(k) == B_01) {
-                getButton_01(r3.nextInt(temp2.size()) + 1);
-            } else if (temp1.get(k) == B_10) {
-                getButton_10(r3.nextInt(temp2.size()) + 1);
-            } else {
-                getButton_11(r3.nextInt(temp2.size()) + 1);
+            if (temp1.contains(B_00) && temp2.contains(incorrect) && temp2.contains(color) == false) { //if this spot is avaliable, assign a color, if not move on
+                getBoardPositionCorrect(B_00, incorrect);
+            } else if (temp1.contains(B_01) && temp2.contains(incorrect) && temp2.contains(color) == false) {
+                getBoardPositionCorrect(B_01, incorrect);
+            } else if (temp1.contains(B_10) && temp2.contains(incorrect) && temp2.contains(color) == false) {
+                getBoardPositionCorrect(B_10, incorrect);
+            } else if (temp1.contains(B_11) && temp2.contains(incorrect) && temp2.contains(color) == false) {
+                getBoardPositionCorrect(B_11, incorrect);
             }
         }
+
+//        for (int k = 0; k < temp1.size(); k++) {
+//            if (temp1.get(k) == B_00) { //if this spot is avaliable, assign a color, if not move on
+//                getButton_00(r3.nextInt(temp2.size()) + 1);
+//            } else if (temp1.get(k) == B_01) {
+//                getButton_01(r3.nextInt(temp2.size()) + 1);
+//            } else if (temp1.get(k) == B_10) {
+//                getButton_10(r3.nextInt(temp2.size()) + 1);
+//            } else {
+//                getButton_11(r3.nextInt(temp2.size()) + 1);
+//            }
+//        }
     }//END OF getBPI GETTER
+
+    //loop through temp1 list
+    //checks to see if temp1 list contains said element
+    //if contains said element, call getIncorrectColor()
+
+    //    //generates incorrect color
+//    //calls checkForColor() for confirmation
+//    public void getIncorrectColor() {
+//        r3 = new Random();
+//        int color = r3.nextInt(colors.size()) + 1;
+//
+//        if (temp2.contains(color)) {//returns true if color exists in list
+//
+//        } else {
+//            getIncorrectColor();
+//        }
+//
+//    }
+
+    //checks temp2 list to see if said color exists in list
+    //if said color exists, call a button a
+//    public void checkForColor(int checkColor) {
+//        if (temp2.contains(checkColor)) {//returns true if color exists in list
+//
+//        } else {
+//            getIncorrectColor();
+//        }
+//    }
+
 
     //BUTTONS
     public void getButton_00(int color) {
