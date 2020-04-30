@@ -96,7 +96,7 @@
                 android:layout_marginRight="32dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
-                android:src="@drawable/white_placeholder"
+                android:src="@drawable/yellow1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline14"
@@ -110,7 +110,7 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:onClick="playGame"
-                android:src="@drawable/white_placeholder"
+                android:src="@drawable/red1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_01"
                 app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
             android:layout_weight="1"
             android:background="@color/transparent"
             android:paddingBottom="70dp"
-            android:src="@drawable/white_placeholder"
+            android:src="@drawable/green1"
             />
 
         <ImageButton
@@ -142,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/white_placeholder"
+            android:src="@drawable/violet1"
             android:background="@color/transparent"
             android:paddingBottom="70dp"
             />

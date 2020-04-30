@@ -19,35 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class GameView extends AppCompatActivity {
-    //buttons
-    ImageButton btn_00, btn_01, btn_10, btn_11;
-    ImageView matchTheColor;
-    TextView level;
-    Random r1, r2, r3;
-    boolean rightColor = false;
-
-    public final static int B_00 = 1;
-    public final static int B_01 = 2;
-    public final static int B_10 = 3;
-    public final static int B_11 = 4;
-    int corrButton = B_00; //correct button
-    ArrayList<Integer> positions = new ArrayList<>(Arrays.asList(B_00, B_01, B_10, B_11));
-    ArrayList<Integer> temp1; //TEMPORARY LIST TO STORE POSITIONS WITHOUT CORRECT POSITION(S)
-
-    public final static int COLOR_RED = 1;
-    public final static int COLOR_ORANGE = 2;
-    public final static int COLOR_YELLOW = 3;
-    public final static int COLOR_GREEN = 4;
-    public final static int COLOR_BLUE = 5;
-    public final static int COLOR_INDIGO = 6;
-    public final static int COLOR_VIOLET = 7;
-    int corrColor = 1;//correct color
-    ArrayList<Integer> colors = new ArrayList<>(Arrays.asList(COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET));
-    ArrayList<Integer> temp2; //TEMPORARY LIST TO STORE COLORS OTHER THAN CORRECT COLOR(S)
-
-
-    int currentLevel = 1;
+public class Pause extends AppCompatActivity {
 
     //Timer Variables
     TextView timer;
@@ -61,60 +33,7 @@ public class GameView extends AppCompatActivity {
     Dialog pause;
     View v;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
-//
-//        GamePlayOLD gpOLD = new GamePlayOLD();
-//        Pause pause = new Pause();
-
-
-        //CREATED ON GAME BOARD ON LOAD
-        //DEFAULT IMAGE BUTTONS
-        btn_00 = findViewById(R.id.button_00);
-        btn_01 = findViewById(R.id.button_01);
-        btn_10 = findViewById(R.id.button_10);
-        btn_11 = findViewById(R.id.button_11);
-
-        //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
-        matchTheColor = findViewById(R.id.imageView_color);
-        matchTheColor.setClickable(false);
-
-        //DISPLAY LEVEL
-        level = findViewById(R.id.textView_level1);
-        level.setText("Level " + currentLevel);
-        //******************************************************//
-
-        //method that moves to the next level
-        btn_00.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ( btn_00.equals(matchTheColor)) {
-                    btn_00.setVisibility(View. INVISIBLE);
-
-                }
-                setContentView(R.layout.activity_game2);
-            }
-        });
-
-        //GENERATING COLORS AND POSITIONS
-        //GENERATE THE CORRECT COLOR
-//        r1 = new Random();
-//        corrColor = r1.nextInt(colors.size()) + 1;
-//
-//        //GENERATE THE CORRECT BUTTON LOCATION(S)
-//        r2 = new Random();
-//        corrButton = r2.nextInt(positions.size()) + 1;
-//
-//        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
-//        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
-//        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
-//        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
-        //******************************************************//
-
-//        pause.startPause();
-
+    public void startPause(){
         //INITIALIZE THE PAUSE VARIABLE
         pause = new Dialog(this);
         pauseButton = (ImageButton) findViewById(R.id.button_pause);
@@ -158,8 +77,7 @@ public class GameView extends AppCompatActivity {
             //START THE TIMER
         }.start();
         //******************************************************//
-    }//END OF ON-CREATE
-    //******************************************************//
+    }
 
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
@@ -240,17 +158,10 @@ public class GameView extends AppCompatActivity {
         pause.show();
     }//END OF PAUSE MENU
 
-   // GAMEOVER SCREEN METHOD
+    //GAMEOVER SCREEN METHOD
     public void openGameOver() {
         Intent intent = new Intent(this, GameOver.class);
         startActivity(intent);
     }//END OF GAMEOVER
 
-
-    public void playGame(View v) {
-
-    }
-
-}//END OF CLASS
-
-
+}
