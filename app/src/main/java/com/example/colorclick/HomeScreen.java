@@ -24,26 +24,12 @@ public class HomeScreen extends AppCompatActivity {
         myDialog = new Dialog(this);
         //button = (Button) findViewById(R.id.button); this is the original instruction btn
         playbutton = (ImageButton) findViewById(R.id.playbutton);
-
-
-        /* this is the original instructions button
-        button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               openInstructions();
-           }
-        });
-        */
-
         playbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGameView();
             }
         });
-
-
-
     }
 
     //pop up instructions view
@@ -64,21 +50,9 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
-
     //opens the game window view
     public void openGameView() {
         Intent intent = new Intent(this, GameView.class);
         startActivity(intent);
     }
-
-    //opens the instructions view window
-    public void openInstructions() {
-        Intent intent = new Intent (this, InstructionWindow.class);
-        startActivity(intent);
-
-
-    }
-
-
-
 }

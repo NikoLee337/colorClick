@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Start main Layout-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:game1="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,8 +13,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
 
         <!--Spacer Header1 -->
         <TextView
@@ -86,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_begin="41dp" />
+                game1:layout_constraintGuide_begin="41dp" />
 
             <ImageButton
                 android:id="@+id/button_01"
@@ -97,10 +95,11 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:src="@drawable/yellow1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline14"
-                app:layout_constraintVertical_bias="0.686"
+                android:onClick="openGameView"
+                game1:layout_constraintBottom_toBottomOf="parent"
+                game1:layout_constraintEnd_toEndOf="parent"
+                game1:layout_constraintTop_toTopOf="@+id/guideline14"
+                game1:layout_constraintVertical_bias="0.686"
                 />
 
             <ImageButton
@@ -111,11 +110,11 @@
                 android:background="@color/transparent"
                 android:onClick="playGame"
                 android:src="@drawable/red1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button_01"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline14"
-                app:layout_constraintVertical_bias="0.509" />
+                game1:layout_constraintBottom_toBottomOf="parent"
+                game1:layout_constraintEnd_toStartOf="@+id/button_01"
+                game1:layout_constraintStart_toStartOf="parent"
+                game1:layout_constraintTop_toTopOf="@+id/guideline14"
+                game1:layout_constraintVertical_bias="0.509" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

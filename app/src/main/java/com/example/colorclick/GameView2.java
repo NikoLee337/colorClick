@@ -1,8 +1,5 @@
 package com.example.colorclick;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
@@ -14,14 +11,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
-public class GameView extends AppCompatActivity {
+public class GameView2 extends AppCompatActivity {
     //buttons
-    private ImageButton btn_00, btn_01, btn_10, btn_11;
+    ImageButton btn_00, btn_01, btn_10, btn_11;
     ImageView matchTheColor;
     TextView level;
     Random r1, r2, r3;
@@ -47,7 +46,7 @@ public class GameView extends AppCompatActivity {
     ArrayList<Integer> temp2; //TEMPORARY LIST TO STORE COLORS OTHER THAN CORRECT COLOR(S)
 
 
-    int currentLevel = 1;
+    int currentLevel = 2;
 
     //Timer Variables
     TextView timer;
@@ -64,10 +63,11 @@ public class GameView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_game2);
 //
 //        GamePlayOLD gpOLD = new GamePlayOLD();
 //        Pause pause = new Pause();
+
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
@@ -89,13 +89,23 @@ public class GameView extends AppCompatActivity {
 //        btn_01.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                if (btn_01.equals(matchTheColor)) {
-//                    btn_01.setVisibility(View.INVISIBLE);
+//                if ( btn_01.equals(matchTheColor)) {
+//                    btn_01.setVisibility(View. INVISIBLE);
 //                }
-////                setContentView(R.layout.activity_game2);
-//                openGameView(v);
+//                setContentView(R.layout.activity_game2);
 //            }
 //        });
+
+        btn_10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (btn_10.equals(matchTheColor)) {
+                    btn_10.setVisibility(View. INVISIBLE);
+                }
+//                setContentView(R.layout.activity_game3);
+                openGameView(v);
+            }
+        });
 
 
         //GENERATING COLORS AND POSITIONS
@@ -160,21 +170,6 @@ public class GameView extends AppCompatActivity {
         //******************************************************//
     }//END OF ON-CREATE
     //******************************************************//
-
-    public void openGameView(View v) {
-        Intent intent = new Intent(this, GameView2.class);
-        btn_01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (btn_01.equals(matchTheColor)) {
-                    btn_01.setVisibility(View.INVISIBLE);
-                }
-//                setContentView(R.layout.activity_game2)
-            }
-        });
-        startActivity(intent);
-    }
-
 
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
@@ -262,6 +257,14 @@ public class GameView extends AppCompatActivity {
     }//END OF GAMEOVER
 
 
+    public void playGame(View v) {
+
+    }
+
+    public void openGameView(View v) {
+        Intent intent = new Intent(this, GameView.class);
+        startActivity(intent);
+    }
 }//END OF CLASS
 
 

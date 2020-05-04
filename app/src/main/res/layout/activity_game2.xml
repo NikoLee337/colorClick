@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Start main Layout-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:game2="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".GameView">
+    tools:context=".GameView2">
 
     <!--Start Relative1-->
     <RelativeLayout
@@ -138,10 +138,9 @@
 
         <!--[PLACEHOLDER] Timer-->
         <TextView
-            android:id="@+id/textView_timer"
+            android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Timer"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank3"
@@ -165,23 +164,23 @@
             android:background="@color/transparent"/>
 
         <!--Progress/Timer Bar -->
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:id="@+id/timer_progressbar"
-            android:layout_below="@id/textView_timer"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:progressTint="@color/red"/> <!--changes progressbar color-->
+<!--        <ProgressBar-->
+<!--            style="?android:attr/progressBarStyleHorizontal"-->
+<!--            android:id="@+id/timer_progressbar"-->
+<!--            android:layout_below="@id/textView_timer"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:paddingTop="5dp"-->
+<!--            android:paddingBottom="5dp"-->
+<!--            android:progressTint="@color/red"/> &lt;!&ndash;changes progressbar color&ndash;&gt;-->
 
-        <!--Spacer Footer2 -->
-        <TextView
-            android:id="@+id/textView_footer2"
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/violet"
-            android:layout_alignBottom="@id/timer_progressbar"/>
+<!--        &lt;!&ndash;Spacer Footer2 &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/textView_footer2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="5dp"-->
+<!--            android:background="@color/violet"-->
+<!--            android:layout_alignBottom="@id/timer_progressbar"/>-->
     </RelativeLayout>
     <!--End Relative2-->
 
