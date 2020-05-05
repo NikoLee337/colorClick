@@ -119,20 +119,22 @@
             android:background="@color/transparent"/>
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_04"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/yellow1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:src="@drawable/yellow1" />
 
         <ImageButton
             android:id="@+id/button_05"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/indigo1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/indigo1" />
     </LinearLayout>
     <!--End Linear2-->
 
@@ -143,6 +145,7 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_06"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -151,6 +154,7 @@
             android:background="@color/transparent"/>
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_07"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -158,6 +162,7 @@
             android:src="@drawable/red1"
             android:background="@color/transparent"/>
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_08"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -174,6 +179,7 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_09"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -182,6 +188,7 @@
             android:background="@color/transparent"/>
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_10"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -189,6 +196,7 @@
             android:src="@drawable/indigo1"
             android:background="@color/transparent"/>
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_11"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

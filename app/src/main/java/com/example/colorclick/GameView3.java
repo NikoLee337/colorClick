@@ -92,7 +92,7 @@ public class GameView3 extends AppCompatActivity {
             //CALLS GAMEOVER PAGE ONCE TIMER RUNS OUT
             public void onFinish() {
                 timer.setText("0");
-                openGameOver();
+                openGameOver(v);
             }
             //START THE TIMER
         }.start();
@@ -111,7 +111,7 @@ public class GameView3 extends AppCompatActivity {
         closebutton = (TextView) pause.findViewById(R.id.closebutton);
         closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 // Makes sure the counter is accurate upon resuming game
                 counterRemaining++;
 
@@ -132,7 +132,7 @@ public class GameView3 extends AppCompatActivity {
                     // Calls GameOver page once time runs out
                     public void onFinish() {
                         timer.setText("0");
-                        openGameOver();
+                        openGameOver(v);
                     }
                     // Starts the timer
                 }.start();
@@ -145,7 +145,7 @@ public class GameView3 extends AppCompatActivity {
         resume = (Button) pause.findViewById(R.id.resumeButton);
         resume.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 // Makes sure the counter is accurate upon resuming game
                 counterRemaining++;
 
@@ -166,7 +166,7 @@ public class GameView3 extends AppCompatActivity {
                     // Calls GameOver page once time runs out
                     public void onFinish() {
                         timer.setText("0");
-                        openGameOver();
+                        openGameOver(v);
                     }
                     // Starts the timer
                 }.start();
@@ -179,8 +179,9 @@ public class GameView3 extends AppCompatActivity {
     }//END OF PAUSE MENU
 
     // GAMEOVER SCREEN METHOD
-    public void openGameOver() {
+    public void openGameOver(View v) {
         Intent intent = new Intent(this, GameOver.class);
+        count.cancel();
         startActivity(intent);
     }//END OF GAMEOVER
 

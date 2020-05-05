@@ -103,6 +103,7 @@
 
             <ImageButton
                 android:id="@+id/button_00"
+                android:onClick="openGameOver"
                 android:layout_width="126dp"
                 android:layout_height="126dp"
                 android:layout_weight="1"
@@ -126,6 +127,7 @@
 
         <ImageButton
             android:id="@+id/button_10"
+            android:onClick="openGameOver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -136,6 +138,7 @@
 
         <ImageButton
             android:id="@+id/button_11"
+            android:onClick="openGameOver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

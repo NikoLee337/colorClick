@@ -76,6 +76,7 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_00"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -84,6 +85,7 @@
             android:background="@color/transparent"/>
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -100,6 +102,7 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_10"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
