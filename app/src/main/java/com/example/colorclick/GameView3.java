@@ -46,7 +46,7 @@ public class GameView3 extends AppCompatActivity {
     ArrayList<Integer> temp2; //TEMPORARY LIST TO STORE COLORS OTHER THAN CORRECT COLOR(S)
 
 
-    int currentLevel = 2;
+    int currentLevel = 3;
 
     //Timer Variables
     TextView timer;
@@ -80,22 +80,22 @@ public class GameView3 extends AppCompatActivity {
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
 
-        //DISPLAY LEVEL
-//        level = findViewById(R.id.textView_level1);
-//        level.setText("Level " + currentLevel);
-        //******************************************************//
-
-//        //method that moves to the next level
-////        btn_01.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                if ( btn_01.equals(matchTheColor)) {
-////                    btn_01.setVisibility(View. INVISIBLE);
-////                }
-////                setContentView(R.layout.activity_game2);
-////            }
-////        });
+//        //DISPLAY LEVEL
+////        level = findViewById(R.id.textView_level1);
+////        level.setText("Level " + currentLevel);
+//        //******************************************************//
 //
+////        //method that moves to the next level
+//////        btn_01.setOnClickListener(new View.OnClickListener() {
+//////            @Override
+//////            public void onClick(View v) {
+//////                if ( btn_01.equals(matchTheColor)) {
+//////                    btn_01.setVisibility(View. INVISIBLE);
+//////                }
+//////                setContentView(R.layout.activity_game2);
+//////            }
+//////        });
+////
         btn_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,25 +103,25 @@ public class GameView3 extends AppCompatActivity {
                 //openGameView3();
             }
         });
-//
-//
-//        //GENERATING COLORS AND POSITIONS
-//        //GENERATE THE CORRECT COLOR
-////        r1 = new Random();
-////        corrColor = r1.nextInt(colors.size()) + 1;
 ////
-////        //GENERATE THE CORRECT BUTTON LOCATION(S)
-////        r2 = new Random();
-////        corrButton = r2.nextInt(positions.size()) + 1;
 ////
-////        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
-////        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
-////        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
-////        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
-//        //******************************************************//
-//
-////        pause.startPause();
-//
+////        //GENERATING COLORS AND POSITIONS
+////        //GENERATE THE CORRECT COLOR
+//////        r1 = new Random();
+//////        corrColor = r1.nextInt(colors.size()) + 1;
+//////
+//////        //GENERATE THE CORRECT BUTTON LOCATION(S)
+//////        r2 = new Random();
+//////        corrButton = r2.nextInt(positions.size()) + 1;
+//////
+//////        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
+//////        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
+//////        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
+//////        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
+////        //******************************************************//
+////
+//////        pause.startPause();
+////
         //INITIALIZE THE PAUSE VARIABLE
         pause = new Dialog(this);
         pauseButton = (ImageButton) findViewById(R.id.button_pause);
@@ -165,8 +165,8 @@ public class GameView3 extends AppCompatActivity {
         }.start();
         //******************************************************//
     }//END OF ON-CREATE
-    //    //******************************************************//
-//
+//    //    //******************************************************//
+////
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
         TextView closebutton;
@@ -251,20 +251,20 @@ public class GameView3 extends AppCompatActivity {
         Intent intent = new Intent(this, GameOver.class);
         startActivity(intent);
     }//END OF GAMEOVER
+////
+////
+////    public void playGame(View v) {
+////
+////    }
+////
+////    public void openGameView(View v) {
+////        Intent intent = new Intent(this, GameView.class);
+////        startActivity(intent);
 //
-//
-//    public void playGame(View v) {
-//
-//    }
-//
-//    public void openGameView(View v) {
-//        Intent intent = new Intent(this, GameView.class);
+//    public void openGameView4(){
+//        Intent intent = new Intent(this, GameView3.class);
 //        startActivity(intent);
-
-    public void openGameView4(){
-        Intent intent = new Intent(this, GameView3.class);
-        startActivity(intent);
-    }
+//    }
 
 //    }
 }//END OF CLASS
