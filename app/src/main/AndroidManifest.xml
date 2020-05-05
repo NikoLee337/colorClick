@@ -22,15 +22,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HomeScreen"/>
         <activity android:name=".InstructionWindow" />
+        <activity android:name=".GameOver" />
         <activity android:name=".GameView" />
         <activity android:name=".GameView2" />
         <activity android:name=".GameView3" />
-        <activity android:name=".HomeScreen"/>
-        <activity android:name=".GameOver" />
         <activity android:name=".GameView4" />
         <activity android:name=".GameView5" />
         <activity android:name=".GameView6" />
+        <activity android:name=".GameView7" />
+        <activity android:name=".GameView8" />
+        <activity android:name=".GameView9" />
+        <activity android:name=".GameView10" />
+        <activity android:name=".GameView11" />
 
     </application>
 
