@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class GamePlayOLD extends AppCompatActivity {
+public class GamePlayOLD  {
 
 //    GameView view = new GameView();
 //

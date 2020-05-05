@@ -3,7 +3,7 @@ package com.example.colorclick;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Buttons extends GameView {
+public class Buttons   {
 
 //    public final static int B_00 = 1;
 //    public final static int B_01 = 2;
