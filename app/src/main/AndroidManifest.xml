@@ -26,6 +26,8 @@
         <activity android:name=".GameView" />
         <activity android:name=".HomeScreen"/>
         <activity android:name=".GameOver" />
+        <activity android:name=".GameView2" />
+        <activity android:name=".GameView3" />
     </application>
 
 </manifest>

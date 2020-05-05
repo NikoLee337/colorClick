@@ -86,16 +86,15 @@ public class GameView extends AppCompatActivity {
         //******************************************************//
 
         //method that moves to the next level
-//        btn_01.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (btn_01.equals(matchTheColor)) {
-//                    btn_01.setVisibility(View.INVISIBLE);
-//                }
-////                setContentView(R.layout.activity_game2);
-//                openGameView(v);
-//            }
-//        });
+        btn_01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //setContentView(R.layout.activity_game2);
+                count.cancel();
+                openGameView2();
+                //openGameView(v);
+            }
+        });
 
 
         //GENERATING COLORS AND POSITIONS
@@ -119,7 +118,6 @@ public class GameView extends AppCompatActivity {
         pause = new Dialog(this);
         pauseButton = (ImageButton) findViewById(R.id.button_pause);
         pauseButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 //OPENS PAUSE MENU DIALOG
@@ -166,10 +164,7 @@ public class GameView extends AppCompatActivity {
         btn_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (btn_01.equals(matchTheColor)) {
-                    btn_01.setVisibility(View.INVISIBLE);
-                }
-//                setContentView(R.layout.activity_game2)
+                setContentView(R.layout.activity_game2);
             }
         });
         startActivity(intent);
@@ -260,6 +255,11 @@ public class GameView extends AppCompatActivity {
         Intent intent = new Intent(this, GameOver.class);
         startActivity(intent);
     }//END OF GAMEOVER
+
+    public void openGameView2() {
+        Intent intent = new Intent(this, GameView2.class);
+        startActivity(intent);
+    }
 
 
 }//END OF CLASS

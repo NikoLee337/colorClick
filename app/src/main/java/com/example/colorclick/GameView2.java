@@ -81,55 +81,52 @@ public class GameView2 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
         //DISPLAY LEVEL
-        level = findViewById(R.id.textView_level1);
-        level.setText("Level " + currentLevel);
+//        level = findViewById(R.id.textView_level1);
+//        level.setText("Level " + currentLevel);
         //******************************************************//
 
-        //method that moves to the next level
-//        btn_01.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if ( btn_01.equals(matchTheColor)) {
-//                    btn_01.setVisibility(View. INVISIBLE);
-//                }
-//                setContentView(R.layout.activity_game2);
-//            }
-//        });
-
+//        //method that moves to the next level
+////        btn_01.setOnClickListener(new View.OnClickListener() {
+////            @Override
+////            public void onClick(View v) {
+////                if ( btn_01.equals(matchTheColor)) {
+////                    btn_01.setVisibility(View. INVISIBLE);
+////                }
+////                setContentView(R.layout.activity_game2);
+////            }
+////        });
+//
         btn_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (btn_10.equals(matchTheColor)) {
-                    btn_10.setVisibility(View. INVISIBLE);
-                }
-//                setContentView(R.layout.activity_game3);
-                openGameView(v);
+                //setContentView(R.layout.activity_game3);
+                count.cancel();
+                openGameView3();
             }
         });
-
-
-        //GENERATING COLORS AND POSITIONS
-        //GENERATE THE CORRECT COLOR
-//        r1 = new Random();
-//        corrColor = r1.nextInt(colors.size()) + 1;
 //
-//        //GENERATE THE CORRECT BUTTON LOCATION(S)
-//        r2 = new Random();
-//        corrButton = r2.nextInt(positions.size()) + 1;
 //
-//        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
-//        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
-//        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
-//        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
-        //******************************************************//
-
-//        pause.startPause();
-
+//        //GENERATING COLORS AND POSITIONS
+//        //GENERATE THE CORRECT COLOR
+////        r1 = new Random();
+////        corrColor = r1.nextInt(colors.size()) + 1;
+////
+////        //GENERATE THE CORRECT BUTTON LOCATION(S)
+////        r2 = new Random();
+////        corrButton = r2.nextInt(positions.size()) + 1;
+////
+////        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
+////        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
+////        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
+////        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
+//        //******************************************************//
+//
+////        pause.startPause();
+//
         //INITIALIZE THE PAUSE VARIABLE
         pause = new Dialog(this);
         pauseButton = (ImageButton) findViewById(R.id.button_pause);
         pauseButton.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 //OPENS PAUSE MENU DIALOG
@@ -169,8 +166,8 @@ public class GameView2 extends AppCompatActivity {
         }.start();
         //******************************************************//
     }//END OF ON-CREATE
-    //******************************************************//
-
+//    //******************************************************//
+//
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
         TextView closebutton;
@@ -255,16 +252,23 @@ public class GameView2 extends AppCompatActivity {
         Intent intent = new Intent(this, GameOver.class);
         startActivity(intent);
     }//END OF GAMEOVER
+//
+//
+//    public void playGame(View v) {
+//
+//    }
+//
+//    public void openGameView(View v) {
+//        Intent intent = new Intent(this, GameView.class);
+//        startActivity(intent);
 
+        public void openGameView3(){
+            Intent intent = new Intent(this, GameView3.class);
+            startActivity(intent);
+        }
 
-    public void playGame(View v) {
-
-    }
-
-    public void openGameView(View v) {
-        Intent intent = new Intent(this, GameView.class);
-        startActivity(intent);
-    }
+//    }
 }//END OF CLASS
+
 
 
