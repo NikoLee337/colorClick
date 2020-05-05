@@ -55,21 +55,26 @@ public class GameView6 extends AppCompatActivity {
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
 
+
         btn_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count.cancel();
-                openGameView();
+                btn_02.setVisibility(View. INVISIBLE);
+                checkvisi();
+
             }
         });
 
         btn_03.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count.cancel();
-                openGameView();
+                btn_03.setVisibility(View. INVISIBLE);
+                checkvisi();
             }
+
         });
+
+
 
         //INITIALIZE THE PAUSE VARIABLE
         pause = new Dialog(this);
@@ -108,7 +113,7 @@ public class GameView6 extends AppCompatActivity {
             //CALLS GAMEOVER PAGE ONCE TIMER RUNS OUT
             public void onFinish() {
                 timer.setText("0");
-                openGameOver();
+                openGameOver(v);
             }
             //START THE TIMER
         }.start();
@@ -127,7 +132,7 @@ public class GameView6 extends AppCompatActivity {
         closebutton = (TextView) pause.findViewById(R.id.closebutton);
         closebutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 // Makes sure the counter is accurate upon resuming game
                 counterRemaining++;
 
@@ -148,7 +153,7 @@ public class GameView6 extends AppCompatActivity {
                     // Calls GameOver page once time runs out
                     public void onFinish() {
                         timer.setText("0");
-                        openGameOver();
+                        openGameOver(v);
                     }
                     // Starts the timer
                 }.start();
@@ -161,7 +166,7 @@ public class GameView6 extends AppCompatActivity {
         resume = (Button) pause.findViewById(R.id.resumeButton);
         resume.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 // Makes sure the counter is accurate upon resuming game
                 counterRemaining++;
 
@@ -182,7 +187,7 @@ public class GameView6 extends AppCompatActivity {
                     // Calls GameOver page once time runs out
                     public void onFinish() {
                         timer.setText("0");
-                        openGameOver();
+                        openGameOver(v);
                     }
                     // Starts the timer
                 }.start();
@@ -195,14 +200,23 @@ public class GameView6 extends AppCompatActivity {
     }//END OF PAUSE MENU
 
     // GAMEOVER SCREEN METHOD
-    public void openGameOver() {
+    public void openGameOver(View v) {
         Intent intent = new Intent(this, GameOver.class);
+        count.cancel();
         startActivity(intent);
     }//END OF GAMEOVER
 
     public void openGameView() {
         Intent intent = new Intent(this, GameView.class);
+        count.cancel();
         startActivity(intent);
+    }
+
+    public void checkvisi(){
+        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+            count.cancel();
+            openGameView();
+        }
     }
 }//END OF CLASS
 

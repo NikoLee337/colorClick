@@ -50,7 +50,7 @@ public class GameView4 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count.cancel();
-                openGameView();
+                openGameView5();
             }
         });
 
@@ -183,8 +183,8 @@ public class GameView4 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView() {
-        Intent intent = new Intent(this, GameView.class);
+    public void openGameView5() {
+        Intent intent = new Intent(this, GameView5.class);
         startActivity(intent);
     }
 }//END OF CLASS

@@ -33,7 +33,7 @@
             android:id="@+id/textView_level5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level 5"
+            android:text="Level 6"
             android:textColor="@color/white"
             android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank1"
@@ -76,6 +76,7 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_00"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -83,7 +84,9 @@
             android:src="@drawable/green1"
             android:background="@color/transparent"/>
 
+
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

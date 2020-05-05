@@ -51,6 +51,7 @@ public class GameView extends AppCompatActivity {
         btn_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 count.cancel();
                 openGameView2();
             }
