@@ -44,6 +44,24 @@ public class GamePlayOLD extends AppCompatActivity {
 //
 //    int currentLevel = 1;
 //
+
+
+    //GENERATING COLORS AND POSITIONS
+    //GENERATE THE CORRECT COLOR
+//        r1 = new Random();
+//        corrColor = r1.nextInt(colors.size()) + 1;
+//
+//        //GENERATE THE CORRECT BUTTON LOCATION(S)
+//        r2 = new Random();
+//        corrButton = r2.nextInt(positions.size()) + 1;
+//
+//        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
+//        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
+//        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
+//        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
+    //******************************************************//
+
+//        pause.startPause();
 //
 //    //SET METHOD FOR MATCHING COLOR (colored image at BOTTOM-RIGHT-CORNER of screen)
 //    public int setMatchColor(int match) {

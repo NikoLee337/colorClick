@@ -2,10 +2,8 @@ package com.example.colorclick;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -14,40 +12,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 public class GameView extends AppCompatActivity {
     //buttons
     private ImageButton btn_00, btn_01, btn_10, btn_11;
     ImageView matchTheColor;
-    TextView level;
-    Random r1, r2, r3;
     boolean rightColor = false;
-
-    public final static int B_00 = 1;
-    public final static int B_01 = 2;
-    public final static int B_10 = 3;
-    public final static int B_11 = 4;
-    int corrButton = B_00; //correct button
-    ArrayList<Integer> positions = new ArrayList<>(Arrays.asList(B_00, B_01, B_10, B_11));
-    ArrayList<Integer> temp1; //TEMPORARY LIST TO STORE POSITIONS WITHOUT CORRECT POSITION(S)
-
-    public final static int COLOR_RED = 1;
-    public final static int COLOR_ORANGE = 2;
-    public final static int COLOR_YELLOW = 3;
-    public final static int COLOR_GREEN = 4;
-    public final static int COLOR_BLUE = 5;
-    public final static int COLOR_INDIGO = 6;
-    public final static int COLOR_VIOLET = 7;
-    int corrColor = 1;//correct color
-    ArrayList<Integer> colors = new ArrayList<>(Arrays.asList(COLOR_RED, COLOR_ORANGE, COLOR_YELLOW, COLOR_GREEN, COLOR_BLUE, COLOR_INDIGO, COLOR_VIOLET));
-    ArrayList<Integer> temp2; //TEMPORARY LIST TO STORE COLORS OTHER THAN CORRECT COLOR(S)
-
-
-    int currentLevel = 1;
 
     //Timer Variables
     TextView timer;
@@ -65,9 +34,6 @@ public class GameView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-//
-//        GamePlayOLD gpOLD = new GamePlayOLD();
-//        Pause pause = new Pause();
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
@@ -79,40 +45,16 @@ public class GameView extends AppCompatActivity {
         //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
-
-        //DISPLAY LEVEL
-        level = findViewById(R.id.textView_level1);
-        level.setText("Level " + currentLevel);
         //******************************************************//
 
         //method that moves to the next level
         btn_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_game2);
                 count.cancel();
                 openGameView2();
-                //openGameView(v);
             }
         });
-
-
-        //GENERATING COLORS AND POSITIONS
-        //GENERATE THE CORRECT COLOR
-//        r1 = new Random();
-//        corrColor = r1.nextInt(colors.size()) + 1;
-//
-//        //GENERATE THE CORRECT BUTTON LOCATION(S)
-//        r2 = new Random();
-//        corrButton = r2.nextInt(positions.size()) + 1;
-//
-//        gpOLD.setMatchColor(corrColor); //SET CORRECT COLOR
-//        gpOLD.getMatchColor(corrColor); //GET CORRECT COLOR
-//        gpOLD.getBoardPositionCorrect(corrButton, corrColor); //GET CORRECT POSITION(S) AND DISPLAY CORRECT COLOR
-//        gpOLD.getBoardPositionIncorrect(corrButton, corrColor); //GET INCORRECT POSITIONS(S) AND DISPLAY INCORRECT COLORS
-        //******************************************************//
-
-//        pause.startPause();
 
         //INITIALIZE THE PAUSE VARIABLE
         pause = new Dialog(this);
@@ -158,18 +100,6 @@ public class GameView extends AppCompatActivity {
         //******************************************************//
     }//END OF ON-CREATE
     //******************************************************//
-
-    public void openGameView(View v) {
-        Intent intent = new Intent(this, GameView2.class);
-        btn_01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_game2);
-            }
-        });
-        startActivity(intent);
-    }
-
 
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
@@ -256,12 +186,11 @@ public class GameView extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
+
     public void openGameView2() {
         Intent intent = new Intent(this, GameView2.class);
         startActivity(intent);
     }
-
-
 }//END OF CLASS
 
 

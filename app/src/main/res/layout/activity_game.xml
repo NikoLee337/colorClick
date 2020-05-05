@@ -192,24 +192,13 @@
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"/>
 
-        <!--Progress/Timer Bar -->
-<!--        <ProgressBar-->
-<!--            style="?android:attr/progressBarStyleHorizontal"-->
-<!--            android:id="@+id/timer_progressbar"-->
-<!--            android:layout_below="@id/textView_timer"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:paddingTop="5dp"-->
-<!--            android:paddingBottom="5dp"-->
-<!--            android:progressTint="@color/red"/> &lt;!&ndash;changes progressbar color&ndash;&gt;-->
-
-        <!--Spacer Footer2 -->
+<!--        Spacer Footer2 -->
 <!--        <TextView-->
 <!--            android:id="@+id/textView_footer2"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="5dp"-->
 <!--            android:background="@color/violet"-->
-<!--            android:layout_alignBottom="@id/timer_progressbar"/>-->
+<!--            android:layout_alignBottom="@id/imageView_color"/>-->
     </RelativeLayout>
     <!--End Relative2-->
 
