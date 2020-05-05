@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GameView5 extends AppCompatActivity {
     //buttons
-    ImageButton btn_00, btn_01, btn_10, btn_11;
+    ImageButton btn_01, btn_02, btn_11, btn_12;
     ImageView matchTheColor;
     boolean rightColor = false;
 
@@ -37,16 +37,16 @@ public class GameView5 extends AppCompatActivity {
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
-        btn_00 = findViewById(R.id.button_00);
         btn_01 = findViewById(R.id.button_01);
-        btn_10 = findViewById(R.id.button_10);
+        btn_02 = findViewById(R.id.button_02);
         btn_11 = findViewById(R.id.button_11);
+        btn_12 = findViewById(R.id.button_12);
 
         //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
 
-        btn_10.setOnClickListener(new View.OnClickListener() {
+        btn_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count.cancel();

@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/orange1"
+            android:src="@drawable/green1"
             android:background="@color/transparent"/>
     </LinearLayout>
     <!--End Linear1-->

@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class GameView extends AppCompatActivity {
     //buttons
-    private ImageButton btn_00, btn_01, btn_10, btn_11;
+    private ImageButton btn_01, btn_02, btn_11, btn_12;
     ImageView matchTheColor;
     boolean rightColor = false;
 
@@ -40,10 +40,10 @@ public class GameView extends AppCompatActivity {
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
-        btn_00 = findViewById(R.id.button_00);
         btn_01 = findViewById(R.id.button_01);
-        btn_10 = findViewById(R.id.button_10);
+        btn_02 = findViewById(R.id.button_02);
         btn_11 = findViewById(R.id.button_11);
+        btn_12 = findViewById(R.id.button_12);
 
         //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
         matchTheColor = findViewById(R.id.imageView_color);
@@ -51,10 +51,9 @@ public class GameView extends AppCompatActivity {
         //******************************************************//
 
         //method that moves to the next level
-        btn_01.setOnClickListener(new View.OnClickListener() {
+        btn_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 count.cancel();
                 openGameView2();
             }

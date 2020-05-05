@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Start main Layout-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:game1="http://schemas.android.com/apk/res-auto"
+    xmlns:game="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,32 +19,32 @@
             android:id="@+id/textView_header1"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/violet"/>
+            android:background="@color/violet" />
 
         <!--Spacer 1, Left of Level -->
         <TextView
             android:id="@+id/textView_blank1"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true" />
 
         <!--Level title -->
         <TextView
             android:id="@+id/textView_level1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView_blank1"
+            android:paddingTop="10dp"
             android:text="Level 1"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:layout_toRightOf="@id/textView_blank1"
-            android:paddingTop="10dp"/>
+            android:textSize="40sp" />
 
         <!--Spacer 2, Right of Pause -->
         <TextView
             android:id="@+id/textView_blank2"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true" />
 
         <!--Pause button -->
         <ImageButton
@@ -55,16 +55,15 @@
             android:background="@color/transparent"
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
-            android:src="@drawable/ic_baseline_pause"
-            />
+            android:src="@drawable/ic_baseline_pause" />
 
         <!--Spacer Header2 -->
         <TextView
             android:id="@+id/textView_header2"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/violet"
-            android:layout_alignBottom="@id/textView_blank2"/>
+            android:layout_alignBottom="@id/textView_blank2"
+            android:background="@color/violet" />
     </RelativeLayout>
     <!--End Relative1-->
 
@@ -80,40 +79,43 @@
             android:layout_weight="1">
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline14"
+                android:id="@+id/guidelineA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                game1:layout_constraintGuide_begin="41dp" />
+                game:layout_constraintGuide_begin="10dp"
+                game:layout_constraintGuide_end="10dp" />
 
             <ImageButton
                 android:id="@+id/button_01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:onClick="openGameOver"
+                android:src="@drawable/red1"
+                game:layout_constraintBottom_toBottomOf="parent"
+                game:layout_constraintEnd_toStartOf="@+id/button_02"
+                game:layout_constraintEnd_toEndOf="parent"
+                game:layout_constraintHorizontal_bias=".5"
+                game:layout_constraintStart_toStartOf="parent"
+                game:layout_constraintTop_toTopOf="@+id/guidelineA"
+                game:layout_constraintVertical_bias=".5" />
+
+            <ImageButton
+                android:id="@+id/button_02"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginRight="36dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:src="@drawable/yellow1"
-                game1:layout_constraintBottom_toBottomOf="parent"
-                game1:layout_constraintEnd_toEndOf="parent"
-                game1:layout_constraintTop_toTopOf="@+id/guideline14"
-                game1:layout_constraintVertical_bias="0.686"
-                />
-
-            <ImageButton
-                android:id="@+id/button_00"
-                android:onClick="openGameOver"
-                android:layout_width="126dp"
-                android:layout_height="126dp"
-                android:layout_weight="1"
-                android:background="@color/transparent"
-                android:src="@drawable/red1"
-                game1:layout_constraintBottom_toBottomOf="parent"
-                game1:layout_constraintEnd_toStartOf="@+id/button_01"
-                game1:layout_constraintStart_toStartOf="parent"
-                game1:layout_constraintTop_toTopOf="@+id/guideline14"
-                game1:layout_constraintVertical_bias="0.509" />
+                game:layout_constraintBottom_toBottomOf="parent"
+                game:layout_constraintEnd_toEndOf="parent"
+                game:layout_constraintHorizontal_bias=".5"
+                game:layout_constraintTop_toTopOf="@+id/guidelineA"
+                game:layout_constraintVertical_bias=".5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
@@ -125,29 +127,49 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/button_10"
-            android:onClick="openGameOver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/transparent"
-            android:paddingBottom="70dp"
-            android:src="@drawable/green1"
-            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/button_11"
-            android:onClick="openGameOver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/violet1"
-            android:background="@color/transparent"
-            android:paddingBottom="70dp"
-            />
-    </LinearLayout>
-    <!--End Linear2-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                game:layout_constraintGuide_begin="10dp" />
+
+            <ImageButton
+                android:id="@+id/button_11"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginEnd="220dp"
+                android:layout_marginRight="220dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:onClick="openGameOver"
+                android:src="@drawable/green1"
+                game:layout_constraintBottom_toBottomOf="parent"
+                game:layout_constraintEnd_toEndOf="parent"
+                game:layout_constraintHorizontal_bias=".5"
+                game:layout_constraintTop_toTopOf="@+id/guidelineB"
+                game:layout_constraintVertical_bias=".5" />
+
+            <ImageButton
+                android:id="@+id/button_12"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginRight="36dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:onClick="openGameOver"
+                android:src="@drawable/violet1"
+                game:layout_constraintBottom_toBottomOf="parent"
+                game:layout_constraintEnd_toEndOf="parent"
+                game:layout_constraintTop_toTopOf="@+id/guidelineB" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout><!--End Linear2-->
 
     <!--Start Relative2-->
     <RelativeLayout
@@ -159,54 +181,44 @@
             android:id="@+id/textView_footer1"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/violet"/>
+            android:background="@color/violet" />
 
         <!--Spacer 3, Left of Timer -->
         <TextView
             android:id="@+id/textView_blank3"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true" />
 
-        <!--[PLACEHOLDER] Timer-->
+        <!--Timer-->
         <TextView
             android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="40sp"
             android:layout_toRightOf="@id/textView_blank3"
-            android:paddingTop="5dp"/>
+            android:paddingTop="5dp"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
 
         <!--Spacer 4, Right of Color Icon -->
         <TextView
             android:id="@+id/textView_blank4"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true" />
 
         <!--Color Icon Image -->
         <ImageButton
             android:id="@+id/imageView_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:src="@drawable/yellow_footer"
             android:layout_toLeftOf="@id/textView_blank4"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:paddingTop="10dp"
+            android:src="@drawable/yellow_footer" />
+    </RelativeLayout><!--End Relative2-->
 
-<!--        Spacer Footer2 -->
-<!--        <TextView-->
-<!--            android:id="@+id/textView_footer2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="5dp"-->
-<!--            android:background="@color/violet"-->
-<!--            android:layout_alignBottom="@id/imageView_color"/>-->
-    </RelativeLayout>
-    <!--End Relative2-->
-
-</LinearLayout>
-<!--End of Main Layout-->
+</LinearLayout><!--End of Main Layout-->
 
 
 

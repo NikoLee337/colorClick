@@ -36,6 +36,16 @@
         <activity android:name=".GameView9" />
         <activity android:name=".GameView10" />
         <activity android:name=".GameView11" />
+        <activity android:name=".GameView12" />
+        <activity android:name=".GameView13" />
+        <activity android:name=".GameView14" />
+        <activity android:name=".GameView15" />
+        <activity android:name=".GameView16" />
+        <activity android:name=".GameView17" />
+        <activity android:name=".GameView18" />
+        <activity android:name=".GameView19" />
+        <activity android:name=".GameView20" />
+        <activity android:name=".GameView21" />
 
     </application>
 
