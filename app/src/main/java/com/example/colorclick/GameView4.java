@@ -2,7 +2,6 @@ package com.example.colorclick;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -11,14 +10,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class GameView3 extends AppCompatActivity {
+public class GameView4 extends AppCompatActivity {
     //buttons
     ImageButton btn_00, btn_01, btn_10, btn_11;
     ImageView matchTheColor;
@@ -63,7 +61,7 @@ public class GameView3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game3);
+        setContentView(R.layout.activity_game4);
 //
 //        GamePlayOLD gpOLD = new GamePlayOLD();
 //        Pause pause = new Pause();
@@ -96,12 +94,12 @@ public class GameView3 extends AppCompatActivity {
 //////            }
 //////        });
 ////
-        btn_11.setOnClickListener(new View.OnClickListener() {
+        btn_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //setContentView(R.layout.activity_game3);
                 count.cancel();
-                openGameView4();
+                openGameView();
             }
         });
 ////
@@ -252,20 +250,11 @@ public class GameView3 extends AppCompatActivity {
         Intent intent = new Intent(this, GameOver.class);
         startActivity(intent);
     }//END OF GAMEOVER
-////
-////
-////    public void playGame(View v) {
-////
-////    }
-////
-////    public void openGameView(View v) {
-////        Intent intent = new Intent(this, GameView.class);
-////        startActivity(intent);
-//
-    public void openGameView4(){
-        Intent intent = new Intent(this, GameView4.class);
+
+    public void openGameView(){
+       Intent intent = new Intent(this, GameView.class);
         startActivity(intent);
-    }
+   }
 
 //    }
 }//END OF CLASS
