@@ -50,10 +50,10 @@ public class GameView10 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
 
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_12.setVisibility(View. INVISIBLE);
                 checkvisi();
 
             }
@@ -207,7 +207,7 @@ public class GameView10 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_22.getVisibility() == View.INVISIBLE){
+        if(btn_12.getVisibility() == View.INVISIBLE && btn_22.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView11();
         }

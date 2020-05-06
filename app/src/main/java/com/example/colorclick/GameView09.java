@@ -57,19 +57,12 @@ public class GameView09 extends AppCompatActivity {
             }
         });
 
-        btn_12.setOnClickListener(new View.OnClickListener() {
+
+
+        btn_21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_12.setVisibility(View. INVISIBLE);
-                checkvisi();
-            }
-
-        });
-
-        btn_22.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_22.setVisibility(View. INVISIBLE);
+                btn_21.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
@@ -213,7 +206,7 @@ public class GameView09 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_12.getVisibility() == View.INVISIBLE && btn_22.getVisibility() == View.INVISIBLE){
+        if(btn_02.getVisibility() == View.INVISIBLE && btn_21.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView10();
         }
