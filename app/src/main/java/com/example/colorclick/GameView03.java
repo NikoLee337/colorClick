@@ -19,11 +19,11 @@ public class GameView03 extends AppCompatActivity {
 
     //Timer Variables
     TextView timer;
-    public long counter = 5;
+    public long counter = 3;
     public long counterRemaining;
     CountDownTimer count;
     ImageButton pauseButton;
-    public long currentTime = 5000;
+    public long currentTime = 3000;
     public long goDownTime = 1000;
     public long temp = 0;
     Dialog pause;
