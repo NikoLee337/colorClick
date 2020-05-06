@@ -19,32 +19,35 @@
             android:id="@+id/textView_header1"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/violet"/>
+            android:background="@color/indigo" />
 
         <!--Spacer 1, Left of Level -->
         <TextView
             android:id="@+id/textView_blank1"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--Level title -->
         <TextView
-            android:id="@+id/textView_level5"
+            android:id="@+id/textView_level17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Level 6"
+            android:layout_toRightOf="@id/textView_blank1"
+            android:paddingTop="10dp"
+            android:text="@string/L17"
             android:textColor="@color/white"
             android:textSize="40sp"
-            android:layout_toRightOf="@id/textView_blank1"
-            android:paddingTop="10dp"/>
+            android:layout_toEndOf="@id/textView_blank1" />
 
         <!--Spacer 2, Right of Pause -->
         <TextView
             android:id="@+id/textView_blank2"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <!--Pause button -->
         <ImageButton
@@ -57,15 +60,16 @@
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
             android:src="@drawable/ic_baseline_pause"
-            />
+            android:contentDescription="@string/pause"
+            android:layout_toStartOf="@id/textView_blank2" />
 
         <!--Spacer Header2 -->
         <TextView
             android:id="@+id/textView_header2"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/violet"
-            android:layout_alignBottom="@id/textView_blank2"/>
+            android:layout_alignBottom="@id/textView_blank2"
+            android:background="@color/indigo" />
     </RelativeLayout>
     <!--End Relative1-->
 
@@ -76,31 +80,25 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_00"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/green1"
-            android:background="@color/transparent"/>
-
-
-        <ImageButton
-            android:onClick="openGameOver"
             android:id="@+id/button_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/indigo1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/green1"
+            android:contentDescription="@string/correct" />
+
 
         <ImageButton
             android:id="@+id/button_02"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/green1"
-            android:background="@color/transparent"/>
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/indigo1"
+            android:contentDescription="@string/correct" />
     </LinearLayout>
     <!--End Linear1-->
 
@@ -111,98 +109,81 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/button_03"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/orange1"
-            android:background="@color/transparent"/>
-
-        <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_04"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/transparent"
-            android:src="@drawable/yellow1" />
-
-        <ImageButton
-            android:id="@+id/button_05"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/transparent"
-            android:onClick="openGameOver"
-            android:src="@drawable/indigo1" />
-    </LinearLayout>
-    <!--End Linear2-->
-
-    <!--Start Linear2-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_06"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/yellow1"
-            android:background="@color/transparent"/>
-
-        <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_07"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/red1"
-            android:background="@color/transparent"/>
-        <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_08"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/blue1"
-            android:background="@color/transparent"/>
-    </LinearLayout>
-    <!--End Linear2-->
-
-    <!--Start Linear2-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_09"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/violet1"
-            android:background="@color/transparent"/>
-
-        <ImageButton
-            android:onClick="openGameOver"
-            android:id="@+id/button_10"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/indigo1"
-            android:background="@color/transparent"/>
-        <ImageButton
-            android:onClick="openGameOver"
             android:id="@+id/button_11"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/transparent"
+            android:src="@drawable/orange1"
+            android:contentDescription="@string/correct" />
+
+        <ImageButton
+            android:id="@+id/button_12"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/yellow1"
+            android:contentDescription="@string/incorrect" />
+    </LinearLayout>
+    <!--End Linear2-->
+
+    <!--Start Linear2-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/button_21"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/yellow1"
+            android:contentDescription="@string/incorrect" />
+
+        <ImageButton
+            android:id="@+id/button_22"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
             android:src="@drawable/red1"
-            android:background="@color/transparent"/>
+            android:contentDescription="@string/incorrect" />
+
+    </LinearLayout>
+    <!--End Linear2-->
+
+    <!--Start Linear2-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/button_31"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/violet1"
+            android:contentDescription="@string/incorrect" />
+
+        <ImageButton
+            android:id="@+id/button_32"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:onClick="openGameOver"
+            android:src="@drawable/indigo1"
+            android:contentDescription="@string/incorrect" />
+
     </LinearLayout>
     <!--End Linear2-->
 
@@ -217,49 +198,53 @@
             android:id="@+id/textView_footer1"
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/violet"/>
+            android:background="@color/indigo" />
 
         <!--Spacer 3, Left of Timer -->
         <TextView
             android:id="@+id/textView_blank3"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--[PLACEHOLDER] Timer-->
         <TextView
             android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView_blank3"
+            android:paddingTop="5dp"
             android:textColor="@color/white"
             android:textSize="40sp"
-            android:layout_toRightOf="@id/textView_blank3"
-            android:paddingTop="5dp"/>
+            android:layout_toEndOf="@id/textView_blank3" />
 
         <!--Spacer 4, Right of Color Icon -->
         <TextView
             android:id="@+id/textView_blank4"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <!--Color Icon Image -->
         <ImageView
             android:id="@+id/imageView_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textView_blank4"
+            android:background="@color/transparent"
             android:paddingTop="10dp"
             android:src="@drawable/orange_footer"
-            android:layout_toLeftOf="@id/textView_blank4"
-            android:background="@color/transparent"/>
+            android:contentDescription="@string/match"
+            android:layout_toStartOf="@id/textView_blank4" />
 
         <!--Progress/Timer Bar -->
 
     </RelativeLayout>
     <!--End Relative2-->
 
-</LinearLayout>
-    <!--End of Main Layout-->
+</LinearLayout><!--End of Main Layout-->
 
 
 

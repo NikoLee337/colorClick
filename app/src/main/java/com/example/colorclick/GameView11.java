@@ -56,7 +56,6 @@ public class GameView11 extends AppCompatActivity {
             public void onClick(View v) {
                 btn_02.setVisibility(View. INVISIBLE);
                 checkvisi();
-
             }
         });
 
