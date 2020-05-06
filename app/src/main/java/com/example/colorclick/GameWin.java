@@ -16,7 +16,7 @@ public class GameWin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gameover);
+        setContentView(R.layout.activity_gamewin);
 
         playagain = findViewById(R.id.playagainbutton);
         mainmenu = findViewById(R.id.mainmenubutton);
