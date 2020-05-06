@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class GamePlayOLD  {
 
-//    GameView view = new GameView();
+//    GameView01 view = new GameView01();
 //
 //    private final static int B_00 = 1;
 //    private final static int B_01 = 2;

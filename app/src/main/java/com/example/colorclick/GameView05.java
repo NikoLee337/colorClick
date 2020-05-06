@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GameView5 extends AppCompatActivity {
+public class GameView05 extends AppCompatActivity {
     //buttons
     ImageButton btn_01, btn_02, btn_11, btn_12;
     ImageView matchTheColor;
@@ -185,7 +185,7 @@ public class GameView5 extends AppCompatActivity {
     }//END OF GAMEOVER
 
     public void openGameView6() {
-        Intent intent = new Intent(this, GameView6.class);
+        Intent intent = new Intent(this, GameView06.class);
         startActivity(intent);
     }
 }//END OF CLASS

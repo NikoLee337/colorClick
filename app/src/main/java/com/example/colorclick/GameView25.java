@@ -207,7 +207,7 @@ public class GameView25 extends AppCompatActivity {
     }//END OF GAMEOVER
 
     public void openGameView() {
-        Intent intent = new Intent(this, GameView7.class);
+        Intent intent = new Intent(this, GameView07.class);
         count.cancel();
         startActivity(intent);
     }

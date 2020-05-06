@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GameView7 extends AppCompatActivity {
+public class GameView07 extends AppCompatActivity {
     //buttons
     ImageButton btn_00, btn_01, btn_02, btn_03, btn_04, btn_05, btn_06,
             btn_07, btn_08, btn_09, btn_10, btn_11;
@@ -207,7 +207,7 @@ public class GameView7 extends AppCompatActivity {
     }//END OF GAMEOVER
 
     public void openGameView8() {
-        Intent intent = new Intent(this, GameView8.class);
+        Intent intent = new Intent(this, GameView08.class);
         count.cancel();
         startActivity(intent);
     }

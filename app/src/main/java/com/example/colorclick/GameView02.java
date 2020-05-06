@@ -9,13 +9,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GameView9 extends AppCompatActivity {
+public class GameView02 extends AppCompatActivity {
     //buttons
-    ImageButton btn_00, btn_01, btn_02, btn_03, btn_04, btn_05, btn_06,
-            btn_07, btn_08, btn_09, btn_10, btn_11;
+    ImageButton btn_01, btn_02, btn_11, btn_12;
     ImageView matchTheColor;
     boolean rightColor = false;
 
@@ -34,47 +32,27 @@ public class GameView9 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game09);
+        setContentView(R.layout.activity_game02);
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
-        btn_00 = findViewById(R.id.button_00);
         btn_01 = findViewById(R.id.button_01);
         btn_02 = findViewById(R.id.button_02);
-        btn_03 = findViewById(R.id.button_03);
-        btn_04 = findViewById(R.id.button_04);
-        btn_05 = findViewById(R.id.button_05);
-        btn_06 = findViewById(R.id.button_06);
-        btn_07 = findViewById(R.id.button_07);
-        btn_08 = findViewById(R.id.button_08);
-        btn_09 = findViewById(R.id.button_09);
-        btn_10 = findViewById(R.id.button_10);
         btn_11 = findViewById(R.id.button_11);
+        btn_12 = findViewById(R.id.button_12);
 
         //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
+        //******************************************************//
 
-
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
-                checkvisi();
-
+                count.cancel();
+                openGameView3();
             }
         });
-
-        btn_03.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_03.setVisibility(View. INVISIBLE);
-                checkvisi();
-            }
-
-        });
-
-
 
         //INITIALIZE THE PAUSE VARIABLE
         pause = new Dialog(this);
@@ -119,6 +97,7 @@ public class GameView9 extends AppCompatActivity {
         }.start();
         //******************************************************//
     }//END OF ON-CREATE
+//    //******************************************************//
 
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
@@ -206,17 +185,9 @@ public class GameView9 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView10() {
-        Intent intent = new Intent(this, GameView10.class);
-        count.cancel();
+    public void openGameView3() {
+        Intent intent = new Intent(this, GameView03.class);
         startActivity(intent);
-    }
-
-    public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
-            count.cancel();
-            openGameView10();
-        }
     }
 }//END OF CLASS
 

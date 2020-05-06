@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GameView8 extends AppCompatActivity {
+public class GameView09 extends AppCompatActivity {
     //buttons
     ImageButton btn_00, btn_01, btn_02, btn_03, btn_04, btn_05, btn_06,
             btn_07, btn_08, btn_09, btn_10, btn_11;
@@ -34,7 +34,7 @@ public class GameView8 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game08);
+        setContentView(R.layout.activity_game09);
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
@@ -206,8 +206,8 @@ public class GameView8 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView9() {
-        Intent intent = new Intent(this, GameView9.class);
+    public void openGameView10() {
+        Intent intent = new Intent(this, GameView10.class);
         count.cancel();
         startActivity(intent);
     }
@@ -215,7 +215,7 @@ public class GameView8 extends AppCompatActivity {
     public void checkvisi(){
         if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
             count.cancel();
-            openGameView9();
+            openGameView10();
         }
     }
 }//END OF CLASS

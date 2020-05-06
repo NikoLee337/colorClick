@@ -58,7 +58,7 @@ public class HomeScreen extends AppCompatActivity {
     //opens the game window view
     public void openGameView() {
         numb.stop();
-        Intent intent = new Intent(this, GameView.class);
+        Intent intent = new Intent(this, GameView01.class);
         startActivity(intent);
     }
 }

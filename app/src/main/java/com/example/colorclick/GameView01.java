@@ -1,5 +1,6 @@
 package com.example.colorclick;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class GameView4 extends AppCompatActivity {
+public class GameView01 extends AppCompatActivity {
     //buttons
-    ImageButton btn_01, btn_02, btn_11, btn_12;
+    private ImageButton btn_01, btn_02, btn_11, btn_12;
     ImageView matchTheColor;
     boolean rightColor = false;
 
@@ -33,7 +32,10 @@ public class GameView4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game04);
+        setContentView(R.layout.activity_game01);
+
+//        MediaPlayer numb = MediaPlayer.create(GameView01.this,R.raw.numb);
+//        numb.start();
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
@@ -45,12 +47,14 @@ public class GameView4 extends AppCompatActivity {
         //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
+        //******************************************************//
 
+        //method that moves to the next level
         btn_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count.cancel();
-                openGameView5();
+                openGameView2();
             }
         });
 
@@ -97,6 +101,7 @@ public class GameView4 extends AppCompatActivity {
         }.start();
         //******************************************************//
     }//END OF ON-CREATE
+    //******************************************************//
 
     //PAUSE MENU METHOD
     public void pauseMenu(View v) {
@@ -184,11 +189,11 @@ public class GameView4 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView5() {
-        Intent intent = new Intent(this, GameView5.class);
+
+    public void openGameView2() {
+        Intent intent = new Intent(this, GameView02.class);
         startActivity(intent);
     }
 }//END OF CLASS
-
 
 
