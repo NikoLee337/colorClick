@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Start main Layout-->
+<?xml version="1.0" encoding="utf-8"?><!--Start main Layout-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -26,42 +25,42 @@
             android:id="@+id/textView_blank1"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
 
         <!--Level title -->
         <TextView
             android:id="@+id/textView_level20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textView_blank1"
             android:layout_toRightOf="@id/textView_blank1"
             android:paddingTop="10dp"
             android:text="@string/L20"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:layout_toEndOf="@id/textView_blank1" />
+            android:textSize="40sp" />
 
         <!--Spacer 2, Right of Pause -->
         <TextView
             android:id="@+id/textView_blank2"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
 
         <!--Pause button -->
         <ImageButton
             android:id="@+id/button_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/textView_blank2"
             android:layout_toLeftOf="@id/textView_blank2"
             android:background="@color/transparent"
+            android:contentDescription="@string/pause"
             android:onClick="pauseMenu"
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
-            android:src="@drawable/ic_baseline_pause"
-            android:contentDescription="@string/pause"
-            android:layout_toStartOf="@id/textView_blank2" />
+            android:src="@drawable/ic_baseline_pause" />
 
         <!--Spacer Header2 -->
         <TextView
@@ -85,9 +84,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/correct"
             android:onClick="openGameOver"
-            android:src="@drawable/green1"
-            android:contentDescription="@string/correct" />
+            android:src="@drawable/green1" />
 
 
         <ImageButton
@@ -96,9 +95,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/correct"
             android:onClick="openGameOver"
-            android:src="@drawable/indigo1"
-            android:contentDescription="@string/correct" />
+            android:src="@drawable/indigo1" />
     </LinearLayout>
     <!--End Linear1-->
 
@@ -114,8 +113,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:src="@drawable/orange1"
-            android:contentDescription="@string/correct" />
+            android:contentDescription="@string/correct"
+            android:src="@drawable/orange1" />
 
         <ImageButton
             android:id="@+id/button_12"
@@ -123,9 +122,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/yellow1"
-            android:contentDescription="@string/incorrect" />
+            android:src="@drawable/yellow1" />
     </LinearLayout>
     <!--End Linear2-->
 
@@ -141,9 +140,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/yellow1"
-            android:contentDescription="@string/incorrect" />
+            android:src="@drawable/yellow1" />
 
         <ImageButton
             android:id="@+id/button_22"
@@ -151,9 +150,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/red1"
-            android:contentDescription="@string/incorrect" />
+            android:src="@drawable/red1" />
 
     </LinearLayout>
     <!--End Linear2-->
@@ -170,9 +169,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/violet1"
-            android:contentDescription="@string/incorrect" />
+            android:src="@drawable/violet1" />
 
         <ImageButton
             android:id="@+id/button_32"
@@ -180,9 +179,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/indigo1"
-            android:contentDescription="@string/incorrect" />
+            android:src="@drawable/indigo1" />
 
     </LinearLayout>
     <!--End Linear2-->
@@ -205,39 +204,39 @@
             android:id="@+id/textView_blank3"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true" />
 
         <!--[PLACEHOLDER] Timer-->
         <TextView
             android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textView_blank3"
             android:layout_toRightOf="@id/textView_blank3"
             android:paddingTop="5dp"
             android:textColor="@color/white"
-            android:textSize="40sp"
-            android:layout_toEndOf="@id/textView_blank3" />
+            android:textSize="40sp" />
 
         <!--Spacer 4, Right of Color Icon -->
         <TextView
             android:id="@+id/textView_blank4"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
 
         <!--Color Icon Image -->
         <ImageView
             android:id="@+id/imageView_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/textView_blank4"
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"
-            android:paddingTop="10dp"
-            android:src="@drawable/orange_footer"
             android:contentDescription="@string/match"
-            android:layout_toStartOf="@id/textView_blank4" />
+            android:paddingTop="10dp"
+            android:src="@drawable/orange_footer" />
 
         <!--Progress/Timer Bar -->
 

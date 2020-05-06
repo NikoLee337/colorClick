@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class GameView22 extends AppCompatActivity {
+public class GameView30 extends AppCompatActivity {
     //buttons
     ImageButton btn_01, btn_02, btn_03, btn_11, btn_12, btn_13, btn_21, btn_22, btn_23, btn_31, btn_32, btn_33;
     ImageView matchTheColor;
@@ -33,7 +33,7 @@ public class GameView22 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game22);
+        setContentView(R.layout.activity_game30);
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
@@ -205,8 +205,8 @@ public class GameView22 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView23() {
-        Intent intent = new Intent(this, GameView23.class);
+    public void openGameView() {
+        Intent intent = new Intent(this, GameWin.class);
         count.cancel();
         startActivity(intent);
     }
@@ -214,7 +214,7 @@ public class GameView22 extends AppCompatActivity {
     public void checkvisi(){
         if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
             count.cancel();
-            openGameView23();
+            openGameView();
         }
     }
 }//END OF CLASS
