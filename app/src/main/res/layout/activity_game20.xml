@@ -84,7 +84,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:contentDescription="@string/correct"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
             android:src="@drawable/green1" />
 
@@ -95,7 +95,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:contentDescription="@string/correct"
+            android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
             android:src="@drawable/indigo1" />
     </LinearLayout>
@@ -108,13 +108,14 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:onClick="openGameOver"
             android:id="@+id/button_11"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:contentDescription="@string/correct"
-            android:src="@drawable/orange1" />
+            android:contentDescription="@string/incorrect"
+            android:src="@drawable/green1" />
 
         <ImageButton
             android:id="@+id/button_12"
@@ -124,7 +125,7 @@
             android:background="@color/transparent"
             android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/yellow1" />
+            android:src="@drawable/white_placeholder" />
     </LinearLayout>
     <!--End Linear2-->
 
@@ -142,7 +143,7 @@
             android:background="@color/transparent"
             android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/yellow1" />
+            android:src="@drawable/green1" />
 
         <ImageButton
             android:id="@+id/button_22"
@@ -150,9 +151,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:contentDescription="@string/incorrect"
-            android:onClick="openGameOver"
-            android:src="@drawable/red1" />
+            android:contentDescription="@string/correct"
+            android:src="@drawable/yellow1" />
 
     </LinearLayout>
     <!--End Linear2-->
@@ -171,7 +171,7 @@
             android:background="@color/transparent"
             android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/violet1" />
+            android:src="@drawable/green1" />
 
         <ImageButton
             android:id="@+id/button_32"
@@ -181,7 +181,7 @@
             android:background="@color/transparent"
             android:contentDescription="@string/incorrect"
             android:onClick="openGameOver"
-            android:src="@drawable/indigo1" />
+            android:src="@drawable/white_placeholder" />
 
     </LinearLayout>
     <!--End Linear2-->
@@ -236,7 +236,7 @@
             android:background="@color/transparent"
             android:contentDescription="@string/match"
             android:paddingTop="10dp"
-            android:src="@drawable/orange_footer" />
+            android:src="@drawable/yellow_footer" />
 
         <!--Progress/Timer Bar -->
 

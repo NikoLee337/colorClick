@@ -59,18 +59,26 @@ public class GameView19 extends AppCompatActivity {
 
             }
         });
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_12.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
         });
-        btn_11.setOnClickListener(new View.OnClickListener() {
+        btn_21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_21.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+        btn_32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_32.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
@@ -215,7 +223,8 @@ public class GameView19 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_01.getVisibility() == View.INVISIBLE && btn_02.getVisibility() == View.INVISIBLE && btn_11.getVisibility() == View.INVISIBLE){
+        if(btn_01.getVisibility() == View.INVISIBLE && btn_12.getVisibility() == View.INVISIBLE && btn_21.getVisibility() == View.INVISIBLE
+                && btn_32.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView20();
         }
