@@ -3,4 +3,40 @@
     <string name="instructions">Beat the timer! Tap on the ALL the color that corresponds to the circle on the bottom-left. As you move on to higher levels, more circle will appear. How far can you get?
 
     </string>
+    <string name="incorrect">incorrect</string>
+    <string name="correct">correct</string>
+    <string name="match">match</string>
+    <string name="pause">pause</string>
+
+    <string name="L01">Level 1</string>
+    <string name="L02">Level 2</string>
+    <string name="L03">Level 3</string>
+    <string name="L04">Level 4</string>
+    <string name="L05">Level 5</string>
+    <string name="L06">Level 6</string>
+    <string name="L07">Level 7</string>
+    <string name="L08">Level 8</string>
+    <string name="L09">Level 9</string>
+    <string name="L10">Level 10</string>
+    <string name="L11">Level 11</string>
+    <string name="L12">Level 12</string>
+    <string name="L13">Level 13</string>
+    <string name="L14">Level 14</string>
+    <string name="L15">Level 15</string>
+    <string name="L16">Level 16</string>
+    <string name="L17">Level 17</string>
+    <string name="L18">Level 18</string>
+    <string name="L19">Level 19</string>
+    <string name="L20">Level 20</string>
+    <string name="L21">Level 21</string>
+    <string name="L22">Level 22</string>
+    <string name="L23">Level 23</string>
+    <string name="L24">Level 24</string>
+    <string name="L25">Level 25</string>
+
+
+
+
+
+
 </resources>

@@ -25,6 +25,7 @@
             android:id="@+id/textView_blank1"
             android:layout_width="30dp"
             android:layout_height="75dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true" />
 
         <!--Level title -->
@@ -32,9 +33,10 @@
             android:id="@+id/textView_level2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textView_blank1"
             android:layout_toRightOf="@id/textView_blank1"
             android:paddingTop="10dp"
-            android:text="Level 2"
+            android:text="@string/L02"
             android:textColor="@color/white"
             android:textSize="40sp" />
 
@@ -43,6 +45,7 @@
             android:id="@+id/textView_blank2"
             android:layout_width="30dp"
             android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" />
 
         <!--Pause button -->
@@ -50,8 +53,10 @@
             android:id="@+id/button_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/textView_blank2"
             android:layout_toLeftOf="@id/textView_blank2"
             android:background="@color/transparent"
+            android:contentDescription="@string/pause"
             android:onClick="pauseMenu"
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
@@ -71,10 +76,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -92,6 +98,7 @@
                 android:layout_height="125dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/incorrect"
                 android:onClick="openGameOver"
                 android:src="@drawable/orange1"
                 game:layout_constraintBottom_toBottomOf="parent"
@@ -109,6 +116,7 @@
                 android:layout_marginRight="36dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/incorrect"
                 android:onClick="openGameOver"
                 android:src="@drawable/green1"
                 game:layout_constraintBottom_toBottomOf="parent"
@@ -124,10 +132,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -146,6 +155,7 @@
                 android:layout_marginRight="220dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/correct"
                 android:src="@drawable/red1"
                 game:layout_constraintBottom_toBottomOf="parent"
                 game:layout_constraintEnd_toEndOf="parent"
@@ -161,6 +171,7 @@
                 android:layout_marginRight="36dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/incorrect"
                 android:onClick="openGameOver"
                 android:src="@drawable/yellow1"
                 game:layout_constraintBottom_toBottomOf="parent"
@@ -187,6 +198,7 @@
             android:id="@+id/textView_blank3"
             android:layout_width="30dp"
             android:layout_height="75dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true" />
 
         <!--[PLACEHOLDER] Timer-->
@@ -194,6 +206,7 @@
             android:id="@+id/timerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textView_blank3"
             android:layout_toRightOf="@id/textView_blank3"
             android:paddingTop="5dp"
             android:textColor="@color/white"
@@ -204,6 +217,7 @@
             android:id="@+id/textView_blank4"
             android:layout_width="30dp"
             android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" />
 
         <!--Color Icon Image -->
@@ -211,8 +225,10 @@
             android:id="@+id/imageView_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/textView_blank4"
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"
+            android:contentDescription="@string/match"
             android:paddingTop="10dp"
             android:src="@drawable/red_footer" />
 

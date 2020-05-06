@@ -14,8 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GameView19 extends AppCompatActivity {
     //buttons
-    ImageButton btn_00, btn_01, btn_02, btn_03, btn_04, btn_05, btn_06,
-            btn_07, btn_08, btn_09, btn_10, btn_11;
+    ImageButton btn_01, btn_02, btn_11, btn_12, btn_21, btn_22, btn_31, btn_32;
     ImageView matchTheColor;
     boolean rightColor = false;
 
@@ -38,37 +37,40 @@ public class GameView19 extends AppCompatActivity {
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
-        btn_00 = findViewById(R.id.button_00);
         btn_01 = findViewById(R.id.button_01);
         btn_02 = findViewById(R.id.button_02);
-        btn_03 = findViewById(R.id.button_03);
-        btn_04 = findViewById(R.id.button_04);
-        btn_05 = findViewById(R.id.button_05);
-        btn_06 = findViewById(R.id.button_06);
-        btn_07 = findViewById(R.id.button_07);
-        btn_08 = findViewById(R.id.button_08);
-        btn_09 = findViewById(R.id.button_09);
-        btn_10 = findViewById(R.id.button_10);
         btn_11 = findViewById(R.id.button_11);
+        btn_12 = findViewById(R.id.button_12);
+        btn_21 = findViewById(R.id.button_21);
+        btn_22 = findViewById(R.id.button_22);
+        btn_31 = findViewById(R.id.button_31);
+        btn_32 = findViewById(R.id.button_32);
 
         //DEFAULT IMAGE BUTTON REPRESENTING THE COLOR TO BE MATCHED
         matchTheColor = findViewById(R.id.imageView_color);
         matchTheColor.setClickable(false);
 
 
+        btn_01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_01.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
         btn_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_02.setVisibility(View. INVISIBLE);
                 checkvisi();
-
             }
-        });
 
-        btn_03.setOnClickListener(new View.OnClickListener() {
+        });
+        btn_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_03.setVisibility(View. INVISIBLE);
+                btn_02.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
@@ -213,7 +215,7 @@ public class GameView19 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+        if(btn_01.getVisibility() == View.INVISIBLE && btn_02.getVisibility() == View.INVISIBLE && btn_11.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView20();
         }

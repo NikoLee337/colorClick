@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Start main Layout-->
+<?xml version="1.0" encoding="utf-8"?><!--Start main Layout-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:game="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -26,6 +25,7 @@
             android:id="@+id/textView_blank1"
             android:layout_width="30dp"
             android:layout_height="75dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true" />
 
         <!--Level title -->
@@ -33,9 +33,10 @@
             android:id="@+id/textView_level1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/textView_blank1"
             android:layout_toRightOf="@id/textView_blank1"
             android:paddingTop="10dp"
-            android:text="Level 1"
+            android:text="@string/L01"
             android:textColor="@color/white"
             android:textSize="40sp" />
 
@@ -44,6 +45,7 @@
             android:id="@+id/textView_blank2"
             android:layout_width="30dp"
             android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true" />
 
         <!--Pause button -->
@@ -53,9 +55,11 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/textView_blank2"
             android:background="@color/transparent"
+            android:contentDescription="@string/pause"
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
-            android:src="@drawable/ic_baseline_pause" />
+            android:src="@drawable/ic_baseline_pause"
+            android:layout_toStartOf="@id/textView_blank2" />
 
         <!--Spacer Header2 -->
         <TextView
@@ -71,10 +75,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -92,11 +97,12 @@
                 android:layout_height="125dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/incorrect"
                 android:onClick="openGameOver"
                 android:src="@drawable/red1"
                 game:layout_constraintBottom_toBottomOf="parent"
-                game:layout_constraintEnd_toStartOf="@+id/button_02"
                 game:layout_constraintEnd_toEndOf="parent"
+                game:layout_constraintEnd_toStartOf="@+id/button_02"
                 game:layout_constraintHorizontal_bias=".5"
                 game:layout_constraintStart_toStartOf="parent"
                 game:layout_constraintTop_toTopOf="@+id/guidelineA"
@@ -110,6 +116,7 @@
                 android:layout_marginRight="36dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/correct"
                 android:src="@drawable/yellow1"
                 game:layout_constraintBottom_toBottomOf="parent"
                 game:layout_constraintEnd_toEndOf="parent"
@@ -125,10 +132,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -147,6 +155,7 @@
                 android:layout_marginRight="220dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/incorrect"
                 android:onClick="openGameOver"
                 android:src="@drawable/green1"
                 game:layout_constraintBottom_toBottomOf="parent"
@@ -163,6 +172,7 @@
                 android:layout_marginRight="36dp"
                 android:layout_weight="1"
                 android:background="@color/transparent"
+                android:contentDescription="@string/incorrect"
                 android:onClick="openGameOver"
                 android:src="@drawable/violet1"
                 game:layout_constraintBottom_toBottomOf="parent"
@@ -188,7 +198,8 @@
             android:id="@+id/textView_blank3"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--Timer-->
         <TextView
@@ -198,14 +209,16 @@
             android:layout_toRightOf="@id/textView_blank3"
             android:paddingTop="5dp"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:layout_toEndOf="@id/textView_blank3" />
 
         <!--Spacer 4, Right of Color Icon -->
         <TextView
             android:id="@+id/textView_blank4"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <!--Color Icon Image -->
         <ImageButton
@@ -215,7 +228,9 @@
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"
             android:paddingTop="10dp"
-            android:src="@drawable/yellow_footer" />
+            android:src="@drawable/yellow_footer"
+            android:contentDescription="@string/match"
+            android:layout_toStartOf="@id/textView_blank4" />
     </RelativeLayout><!--End Relative2-->
 
 </LinearLayout><!--End of Main Layout-->

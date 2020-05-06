@@ -25,7 +25,8 @@
             android:id="@+id/textView_blank1"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--Level title -->
         <TextView
@@ -34,16 +35,18 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textView_blank1"
             android:paddingTop="10dp"
-            android:text="Level 3"
+            android:text="@string/L03"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:layout_toEndOf="@id/textView_blank1" />
 
         <!--Spacer 2, Right of Pause -->
         <TextView
             android:id="@+id/textView_blank2"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <!--Pause button -->
         <ImageButton
@@ -55,7 +58,9 @@
             android:onClick="pauseMenu"
             android:paddingTop="7dp"
             android:paddingBottom="5dp"
-            android:src="@drawable/ic_baseline_pause" />
+            android:src="@drawable/ic_baseline_pause"
+            android:contentDescription="@string/pause"
+            android:layout_toStartOf="@id/textView_blank2" />
 
         <!--Spacer Header2 -->
         <TextView
@@ -71,10 +76,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -100,7 +106,8 @@
                 game:layout_constraintHorizontal_bias=".5"
                 game:layout_constraintStart_toStartOf="parent"
                 game:layout_constraintTop_toTopOf="@+id/guidelineA"
-                game:layout_constraintVertical_bias=".5" />
+                game:layout_constraintVertical_bias=".5"
+                android:contentDescription="@string/incorrect" />
 
             <ImageButton
                 android:id="@+id/button_02"
@@ -116,7 +123,8 @@
                 game:layout_constraintEnd_toEndOf="parent"
                 game:layout_constraintHorizontal_bias=".5"
                 game:layout_constraintTop_toTopOf="@+id/guidelineA"
-                game:layout_constraintVertical_bias=".5" />
+                game:layout_constraintVertical_bias=".5"
+                android:contentDescription="@string/incorrect" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
     <!--End Linear1-->
@@ -125,10 +133,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -153,7 +162,8 @@
                 game:layout_constraintEnd_toEndOf="parent"
                 game:layout_constraintHorizontal_bias=".5"
                 game:layout_constraintTop_toTopOf="@+id/guidelineB"
-                game:layout_constraintVertical_bias=".5"/>
+                game:layout_constraintVertical_bias=".5"
+                android:contentDescription="@string/incorrect" />
 
             <ImageButton
                 android:id="@+id/button_12"
@@ -166,7 +176,8 @@
                 android:src="@drawable/blue1"
                 game:layout_constraintBottom_toBottomOf="parent"
                 game:layout_constraintEnd_toEndOf="parent"
-                game:layout_constraintTop_toTopOf="@+id/guidelineB"/>
+                game:layout_constraintTop_toTopOf="@+id/guidelineB"
+                android:contentDescription="@string/correct" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
     <!--End Linear2-->
@@ -188,7 +199,8 @@
             android:id="@+id/textView_blank3"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <!--[PLACEHOLDER] Timer-->
         <TextView
@@ -198,14 +210,16 @@
             android:layout_toRightOf="@id/textView_blank3"
             android:paddingTop="5dp"
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:layout_toEndOf="@id/textView_blank3" />
 
         <!--Spacer 4, Right of Color Icon -->
         <TextView
             android:id="@+id/textView_blank4"
             android:layout_width="30dp"
             android:layout_height="75dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <!--Color Icon Image -->
         <ImageView
@@ -215,7 +229,9 @@
             android:layout_toLeftOf="@id/textView_blank4"
             android:background="@color/transparent"
             android:paddingTop="10dp"
-            android:src="@drawable/blue_footer" />
+            android:src="@drawable/blue_footer"
+            android:contentDescription="@string/match"
+            android:layout_toStartOf="@id/textView_blank4" />
 
     </RelativeLayout>
     <!--End Relative2-->
