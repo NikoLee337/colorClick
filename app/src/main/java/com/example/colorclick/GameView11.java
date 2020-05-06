@@ -51,31 +51,23 @@ public class GameView11 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
 
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_22.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
         });
 
-        btn_11.setOnClickListener(new View.OnClickListener() {
+        btn_31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_11.setVisibility(View. INVISIBLE);
+                btn_31.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
         });
 
-        btn_32.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_32.setVisibility(View. INVISIBLE);
-                checkvisi();
-            }
-
-        });
 
 
         //INITIALIZE THE PAUSE VARIABLE
@@ -215,7 +207,7 @@ public class GameView11 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_11.getVisibility() == View.INVISIBLE && btn_32.getVisibility() == View.INVISIBLE){
+        if(btn_22.getVisibility() == View.INVISIBLE && btn_31.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView12();
         }

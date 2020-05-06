@@ -96,7 +96,7 @@
             android:background="@color/transparent"
             android:onClick="openGameOver"
             android:src="@drawable/red1"
-            android:contentDescription="@string/correct" />
+            android:contentDescription="@string/incorrect" />
     </LinearLayout>
     <!--End Linear1-->
 
@@ -123,7 +123,7 @@
             android:layout_weight="1"
             android:background="@color/transparent"
             android:src="@drawable/blue1"
-            android:contentDescription="@string/incorrect" />
+            android:contentDescription="@string/correct" />
     </LinearLayout>
     <!--End Linear2-->
 
