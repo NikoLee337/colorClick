@@ -206,7 +206,7 @@ public class GameView6 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView() {
+    public void openGameView7() {
         Intent intent = new Intent(this, GameView7.class);
         count.cancel();
         startActivity(intent);
@@ -215,7 +215,7 @@ public class GameView6 extends AppCompatActivity {
     public void checkvisi(){
         if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
             count.cancel();
-            openGameView();
+            openGameView7();
         }
     }
 }//END OF CLASS

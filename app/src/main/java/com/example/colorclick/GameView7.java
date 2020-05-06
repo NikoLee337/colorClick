@@ -34,7 +34,7 @@ public class GameView7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game06);
+        setContentView(R.layout.activity_game07);
 
         //CREATED ON GAME BOARD ON LOAD
         //DEFAULT IMAGE BUTTONS
@@ -206,8 +206,8 @@ public class GameView7 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    public void openGameView() {
-        Intent intent = new Intent(this, GameView.class);
+    public void openGameView8() {
+        Intent intent = new Intent(this, GameView8.class);
         count.cancel();
         startActivity(intent);
     }
@@ -215,7 +215,7 @@ public class GameView7 extends AppCompatActivity {
     public void checkvisi(){
         if(btn_10.getVisibility() == View.INVISIBLE && btn_05.getVisibility() == View.INVISIBLE){
             count.cancel();
-            openGameView();
+            openGameView8();
         }
     }
 }//END OF CLASS
