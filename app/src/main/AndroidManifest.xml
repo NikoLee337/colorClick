@@ -25,6 +25,7 @@
         <activity android:name=".HomeScreen"/>
         <activity android:name=".InstructionWindow" />
         <activity android:name=".GameOver" />
+        <activity android:name=".GameWin" />
         <activity android:name=".GameView01" />
         <activity android:name=".GameView02" />
         <activity android:name=".GameView03" />
@@ -50,6 +51,11 @@
         <activity android:name=".GameView23" />
         <activity android:name=".GameView24" />
         <activity android:name=".GameView25" />
+        <activity android:name=".GameView26" />
+        <activity android:name=".GameView27" />
+        <activity android:name=".GameView28" />
+        <activity android:name=".GameView29" />
+        <activity android:name=".GameView30" />
 
     </application>
 
