@@ -92,19 +92,7 @@
         app:layout_constraintGuide_percent=".95"
         app:layout_constraintGuide_begin="365dp" />
 
-    <TextView
-        android:id="@+id/credit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:gravity="center"
-        android:text="@string/credits"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline4" />
+    
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
