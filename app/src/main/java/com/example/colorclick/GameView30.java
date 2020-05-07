@@ -313,7 +313,7 @@ public class GameView30 extends AppCompatActivity {
     public void checkvisi(){
         if(btn_01.getVisibility() == View.INVISIBLE && btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE &&btn_31.getVisibility() == View.INVISIBLE
                 &&btn_12.getVisibility() == View.INVISIBLE &&btn_13.getVisibility() == View.INVISIBLE &&btn_21.getVisibility() == View.INVISIBLE &&btn_23.getVisibility() == View.INVISIBLE
-                &&btn_32.getVisibility() == View.INVISIBLE &&btn_33.getVisibility() == View.INVISIBLE &&btn_11.getVisibility() == View.INVISIBLE &&){
+                &&btn_32.getVisibility() == View.INVISIBLE &&btn_33.getVisibility() == View.INVISIBLE &&btn_11.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView();
         }
