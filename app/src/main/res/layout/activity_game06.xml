@@ -80,20 +80,21 @@
 
         <ImageButton
             android:id="@+id/button_01"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_weight="0.5"
             android:background="@color/transparent"
             android:onClick="openGameOver"
             android:src="@drawable/green1"
-            android:contentDescription="@string/incorrect" />
+            android:contentDescription="@string/incorrect"
+            />
 
 
         <ImageButton
             android:id="@+id/button_02"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_weight=""
             android:background="@color/transparent"
             android:src="@drawable/orange1"
             android:contentDescription="@string/correct" />

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">colorClick</string>
-    <string name="instructions">Beat the timer! Tap on ALL the color that corresponds to the circle on the bottom-right. As you move on to higher levels, more circle will appear. How far can you get?
+    <string name="instructions">Beat the timer! Tap on ALL the color that corresponds to the circle on the bottom-right. As you move on to higher levels, more circle will appear. How far can you get?</string>
+    <string name="credits">Developers: Ger Vang, Chouathong Lo, Delano Lee, Ku Moua, Thomas Xiong</string>
 
-    </string>
     <string name="incorrect">incorrect</string>
     <string name="correct">correct</string>
     <string name="match">match</string>
