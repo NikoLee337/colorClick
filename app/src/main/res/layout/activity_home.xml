@@ -12,27 +12,6 @@
 
     <!--play button logo/image-->
 
-    <!--instructions button-->
-    <!--<Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_alignTop="@+id/playbutton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="121dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="105dp"
-        android:text="Instructions" />-->
-
-    <!--instructions button pop up-->
-
     <ImageView
         android:layout_width="319dp"
         android:layout_height="320dp"
@@ -112,6 +91,20 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".95"
         app:layout_constraintGuide_begin="365dp" />
+
+    <TextView
+        android:id="@+id/credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="@string/credits"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -94,7 +94,7 @@
             android:id="@+id/button_02"
             android:layout_width="125dp"
             android:layout_height="125dp"
-            android:layout_weight=""
+            android:layout_weight="0.5"
             android:background="@color/transparent"
             android:src="@drawable/orange1"
             android:contentDescription="@string/correct" />
