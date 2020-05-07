@@ -55,10 +55,10 @@ public class GameView27 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
 
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_11.setVisibility(View. INVISIBLE);
                 checkvisi();
 
             }
@@ -68,6 +68,24 @@ public class GameView27 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 btn_03.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_23.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_31.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
@@ -212,7 +230,8 @@ public class GameView27 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+        if(btn_11.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE
+                && btn_23.getVisibility() == View.INVISIBLE && btn_31.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView28();
         }

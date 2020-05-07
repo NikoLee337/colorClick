@@ -55,19 +55,46 @@ public class GameView26 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
 
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_01.setVisibility(View. INVISIBLE);
                 checkvisi();
 
             }
         });
 
-        btn_03.setOnClickListener(new View.OnClickListener() {
+        btn_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_03.setVisibility(View. INVISIBLE);
+                btn_02.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_13.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_32.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_33.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_33.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
@@ -212,7 +239,7 @@ public class GameView26 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+        if(btn_01.getVisibility() == View.INVISIBLE && btn_02.getVisibility() == View.INVISIBLE && btn_13.getVisibility() == View.INVISIBLE && btn_32.getVisibility() == View.INVISIBLE && btn_33.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView27();
         }

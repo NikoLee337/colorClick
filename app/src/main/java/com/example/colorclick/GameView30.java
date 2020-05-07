@@ -55,13 +55,22 @@ public class GameView30 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
 
+        btn_01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_01.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
         btn_02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_02.setVisibility(View. INVISIBLE);
                 checkvisi();
-
             }
+
         });
 
         btn_03.setOnClickListener(new View.OnClickListener() {
@@ -69,9 +78,82 @@ public class GameView30 extends AppCompatActivity {
             public void onClick(View v) {
                 btn_03.setVisibility(View. INVISIBLE);
                 checkvisi();
+
+            }
+        });
+
+        btn_11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_11.setVisibility(View. INVISIBLE);
+                checkvisi();
             }
 
         });
+
+        btn_12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_12.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_13.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_33.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_33.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_21.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_23.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_31.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_32.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
 
 
 
@@ -212,7 +294,9 @@ public class GameView30 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+        if(btn_01.getVisibility() == View.INVISIBLE && btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE &&btn_31.getVisibility() == View.INVISIBLE
+                &&btn_12.getVisibility() == View.INVISIBLE &&btn_13.getVisibility() == View.INVISIBLE &&btn_21.getVisibility() == View.INVISIBLE &&btn_23.getVisibility() == View.INVISIBLE
+                &&btn_32.getVisibility() == View.INVISIBLE &&btn_33.getVisibility() == View.INVISIBLE &&btn_11.getVisibility() == View.INVISIBLE &&){
             count.cancel();
             openGameView();
         }

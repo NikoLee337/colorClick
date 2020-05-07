@@ -64,10 +64,28 @@ public class GameView23 extends AppCompatActivity {
             }
         });
 
-        btn_03.setOnClickListener(new View.OnClickListener() {
+        btn_13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_03.setVisibility(View. INVISIBLE);
+                btn_13.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_21.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_32.setVisibility(View. INVISIBLE);
                 checkvisi();
             }
 
@@ -212,7 +230,7 @@ public class GameView23 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+        if(btn_02.getVisibility() == View.INVISIBLE && btn_13.getVisibility() == View.INVISIBLE && btn_21.getVisibility() == View.INVISIBLE && btn_32.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView24();
         }

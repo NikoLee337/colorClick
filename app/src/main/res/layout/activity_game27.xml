@@ -106,7 +106,7 @@
             android:layout_weight="1"
             android:background="@color/transparent"
             android:contentDescription="@string/correct"
-            android:src="@drawable/orange1" />
+            android:src="@drawable/blue1" />
     </LinearLayout>
     <!--End Linear1-->
 
@@ -123,7 +123,7 @@
             android:layout_weight="1"
             android:background="@color/transparent"
             android:contentDescription="@string/correct"
-            android:src="@drawable/orange1" />
+            android:src="@drawable/blue1" />
 
         <ImageButton
             android:id="@+id/button_12"
@@ -180,7 +180,6 @@
             android:layout_weight="1"
             android:background="@color/transparent"
             android:contentDescription="@string/incorrect"
-            android:onClick="openGameOver"
             android:src="@drawable/blue1" />
     </LinearLayout>
     <!--End Linear3-->
@@ -198,8 +197,7 @@
             android:layout_weight="1"
             android:background="@color/transparent"
             android:contentDescription="@string/incorrect"
-            android:onClick="openGameOver"
-            android:src="@drawable/violet1" />
+            android:src="@drawable/blue1" />
 
         <ImageButton
             android:id="@+id/button_32"
@@ -273,7 +271,7 @@
             android:background="@color/transparent"
             android:contentDescription="@string/match"
             android:paddingTop="10dp"
-            android:src="@drawable/orange_footer" />
+            android:src="@drawable/blue_footer" />
 
         <!--Progress/Timer Bar -->
 
