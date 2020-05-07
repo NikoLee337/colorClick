@@ -56,10 +56,10 @@ public class GameView21 extends AppCompatActivity {
         matchTheColor.setClickable(false);
 
 
-        btn_02.setOnClickListener(new View.OnClickListener() {
+        btn_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_02.setVisibility(View. INVISIBLE);
+                btn_01.setVisibility(View. INVISIBLE);
                 checkvisi();
 
             }
@@ -74,6 +74,41 @@ public class GameView21 extends AppCompatActivity {
 
         });
 
+        btn_12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_12.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_21.setVisibility(View. INVISIBLE);
+                checkvisi();
+
+            }
+        });
+
+        btn_23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_23.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
+
+        btn_32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_32.setVisibility(View. INVISIBLE);
+                checkvisi();
+            }
+
+        });
 
 
         //INITIALIZE THE PAUSE VARIABLE
@@ -213,7 +248,10 @@ public class GameView21 extends AppCompatActivity {
     }
 
     public void checkvisi(){
-        if(btn_02.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE){
+        if(btn_01.getVisibility() == View.INVISIBLE && btn_03.getVisibility() == View.INVISIBLE &&
+                btn_12.getVisibility() == View.INVISIBLE &&
+                btn_21.getVisibility() == View.INVISIBLE && btn_23.getVisibility() == View.INVISIBLE &&
+                btn_32.getVisibility() == View.INVISIBLE){
             count.cancel();
             openGameView22();
         }
