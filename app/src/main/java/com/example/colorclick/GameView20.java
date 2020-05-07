@@ -109,9 +109,19 @@ public class GameView20 extends AppCompatActivity {
     public void pauseMenu(View v) {
         TextView closebutton;
         TextView resume;
+        TextView menu;
 
         // Brings up the dialog when the pause button is clicked
         pause.setContentView(R.layout.pause_menu);
+
+        // Main Menu button on the pause menu
+        menu = (TextView) pause.findViewById(R.id.mainmenubutton);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainMenu(v);
+            }
+        });
 
         // Recreates a CountDownTimer with accurate time every time the 'X' button is clicked
         closebutton = (TextView) pause.findViewById(R.id.closebutton);
@@ -190,6 +200,13 @@ public class GameView20 extends AppCompatActivity {
         count.cancel();
         startActivity(intent);
     }//END OF GAMEOVER
+
+    // RETURNS TO MAIN MENU FROM PAUSE MENU
+    public void openMainMenu(View v) {
+        Intent intent = new Intent(this, HomeScreen.class);
+        count.cancel();
+        startActivity(intent);
+    }//END OF MAIN MENU
 
     public void openGameView21() {
         Intent intent = new Intent(this, GameView21.class);

@@ -164,6 +164,7 @@ public class GameView21 extends AppCompatActivity {
         // Brings up the dialog when the pause button is clicked
         pause.setContentView(R.layout.pause_menu);
 
+        // Main Menu button on the pause menu
         menu = (TextView) pause.findViewById(R.id.mainmenubutton);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,12 +251,12 @@ public class GameView21 extends AppCompatActivity {
         startActivity(intent);
     }//END OF GAMEOVER
 
-    // RETURNS TO MAINMENU
+    // RETURNS TO MAIN MENU FROM PAUSE MENU
     public void openMainMenu(View v) {
         Intent intent = new Intent(this, HomeScreen.class);
         count.cancel();
         startActivity(intent);
-    }//END OF GAMEOVER
+    }//END OF MAIN MENU
 
     public void openGameView22() {
         Intent intent = new Intent(this, GameView22.class);
